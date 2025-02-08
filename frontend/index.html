@@ -9,23 +9,106 @@
 </head>
 
 <body>
-    <div class="onboard onboarditem">
-        <div class="holder onboarditem">
-            <h1 class="title onboardchild onboarditem">Ready to Quit?</h1>
-            <ul>
-                <li class="onboardchild onboarditem">On average, I buy a vape every [select box thingy]</li>
-                <li class="onboardchild onboarditem">I spend about [select box thingy] on vape products every month</li>
-                <li class="onboardchild onboarditem">I want to quit because I [select options]</li>
-            </ul>
-            <div class="buttonholder onboarditem">
-                <button class="onboardbutton onboarditem" onclick="moveToTracking()">Get Started</button>
+    <div class="onboardingContainer center">
+        <div class="onboardingText">
+            <h1>Congratulations!</h1> <br>
+            <div>You've taken the first steps towards improving your health and wellbeing</div>
+            <br><br><br><br>
+            <div>Plan your next steps <button class="onboardStart" onclick="onboardStart()">-></button> </div>
+        </div>
+
+    </div>
+    <div class="center">
+        <div class="onboardQuestions1">
+            <div class="onboardQ1">
+                <h1>First, lets get to know you</h1>
+            </div>
+            <div class="vapeCount selector">
+                <div>On how many days a week do you vape?</div>
+                <br>
+                <div class="vapeCountBox">
+                    <div class="vapeCountBoxItem"></div>
+                    <div class="vapeCountBoxItem hoverOption">1-2</div>
+                    <div class="vapeCountBoxItem hoverOption">3-4</div>
+                    <div class="vapeCountBoxItem hoverOption">Near Daily</div>
+                </div>
+            </div>
+            <div class="purchaseCount selector">
+                <div>How many vapes do you buy a week>?</div>
+                <br>
+                <div class="purchaseCountBox">
+                    <div class="purchaseCountBoxItem"></div>
+                    <div class="purchaseCountBoxItem hoverOptionPurchase">1</div>
+                    <div class="purchaseCountBoxItem hoverOptionPurchase">2-3</div>
+                    <div class="purchaseCountBoxItem hoverOptionPurchase">4+</div>
+                </div>
+            </div>
+            <div class="moneyCount selector">
+                <div style="margin: 30px"> How much money do you spend on vapes a week?</div>
+                <input type="range" min="1" max="100" value="50" class="slider">
+                <div class="sliderRange">
+                    <div>0</div>
+                    <div>100</div>
+                </div>
+            </div>
+            <div class="selectorSmall">
+                <div class="onboardQ1Move" onclick="Q1MoveSkip()">skip</div>
+                <div class="onboardQ1Move" onclick="Q1MoveNext()">next</div>
+            </div>
+        </div>
+        <div class="onboardQuestions2 center">
+            <div class="onboardQ2">
+                <h1 class="onboardQ2">Lastly, a Gentle Self Reminder</h1>
+            </div>
+            <div class="onboardQ2" style="height: 7vh">What is motivating you to reduce your usage?</div>
+            <input class="onboardQ2text" type="text"
+                placeholder="Try write about something meaningful for you, for when things get tough">
+            <div class="Q2button">
+                <button class="onboardQ2Move" onclick="onboardEnd()">Start Your Journey</button>
             </div>
         </div>
     </div>
-
-
-
-    <script src="scripts.js"></script>
+    <div class="center">
+        <div class="logEntry">
+            <div class="vapeQuestion">
+                <div>Did you vape today?</div>
+                <div class="vapeQuestionOptions">
+                    <div class="vOption">Yes</div>
+                    <div class="vOption">No</div>
+                </div>
+            </div>
+            <div class="feelingQuestion">
+                <div>How do you feel today?</div>
+                <div class="feelings">
+                    <div class="feelingOption">Angry</div>
+                    <div class="feelingOption">Sad</div>
+                    <div class="feelingOption">Neutral</div>
+                    <div class="feelingOption">Good</div>
+                    <div class="feelingOption">Great</div>
+                </div>
+            </div>
+            <div class="symptomQuestion">
+                <div>How do you feel today?</div>
+                <div class="symptoms">
+                    <div class="symptomOption">gdagdag</div>
+                    <div class="symptomOption">gdag</div>
+                    <div class="symptomOption">gadgda</div>
+                    <div class="symptomOption">gdagda</div>
+                    <div class="symptomOption">asfas</div>
+                </div>
+            </div>
+            <div class="energyQuestion">
+                <div>How is your overall energy level?</div>
+                <div class="energyLevels">
+                    <div class="energyOption">gdagdag</div>
+                    <div class="energyOption">gdag</div>
+                    <div class="energyOption">gadgda</div>
+                    <div class="energyOption">gdagda</div>
+                    <div class="energyOption">asfas</div>
+                </div>
+            </div>
+        </div>
+        <script src="scripts.js"></script>
 </body>
 
 </html>

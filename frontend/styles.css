@@ -3,66 +3,241 @@
     padding: 0;
     box-sizing: border-box;
     font-family: Arial, Helvetica, sans-serif;
-    color: antiquewhite;
+    color: black;
 }
 
 body {
-    background-color: black;
-
+    background-color: #ffffff
 }
 
-.title {
-    text-align: center;
-    padding: 5vw;
+.onboardingContainer {
+    position: absolute;
+    visibility: hidden;
 }
 
-.onboard {
+.center {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     width: 100vw;
-}
-
-.holder {
-    display: flex;
-    height: 100%;
     flex-direction: column;
-    width: 70vw;
+    position: absolute;
 }
 
-.onboardchild {
+.onboardingText {
+    height: 50vh;
+    width: 40vw;
+}
+
+.onboardStart {
+    border-radius: 50%;
+    background-color: #ffffff;
+    width: 50px;
+    height: 50px;
+    border: black 1px solid;
+}
+
+.onboardQuestions1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 92vh;
+    width: 80vw;
+    position: absolute;
+    padding-top: 8vh;
+    display: none;
+}
+
+.onboardQ1 {
     width: 100%;
-    border-bottom: white 1px solid;
-    padding: 2.5vw;
-}
-
-.select {
-    background-color: black;
-    color: white;
-}
-
-.onboardbutton {
-    width: 50%;
-    color: black;
-    border-radius: 5px;
+    text-align: left;
     height: 15vh;
-    font-size: x-large;
-    font-weight: bolder;
 }
 
-.onboardbutton:hover {
-    height: 16vh;
-    width: 55%;
+.selector {
+    display: flex;
+    width: 100%;
+    height: 15vh;
+    align-items: center;
+    flex-direction: column;
+    margin: 5vh
 }
 
-.onboardbutton:active {
-    height: 14vh;
-    width: 45%;
+.vapeCountBox {
+    width: 20%;
+    border: gray 1px solid;
+    display: flex;
+    flex-direction: column;
 }
 
-.buttonholder {
+.vapeCountBoxItem {
+    height: 30px;
+    padding: 10px;
+}
+
+.hoverOption {
+    display: none;
+}
+
+.hoverOptionPurchase {
+    display: none;
+}
+
+.purchaseCountBox {
+    width: 20%;
+    border: gray 1px solid;
+    display: flex;
+    flex-direction: column;
+}
+
+.purchaseCountBoxItem {
+    height: 30px;
+    padding: 10px;
+}
+
+.slider {
+    width: 100%;
+}
+
+.sliderRange {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.selectorSmall {
+    margin-left: 35px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.onboardQuestions2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 92vh;
+    width: 80vw;
+    position: absolute;
+    padding-top: 8vh;
+    display: none;
+}
+
+.onboardQ2 {
+    width: 100%;
+    text-align: left;
+    height: 10vh;
+}
+
+.onboardQ2text {
+    width: 100%;
+    text-align: center;
+    height: 10vh;
+}
+
+.onboardQ2Move {
+    border: black 1px solid;
+    border-radius: 5%;
+    background-color: #ffffff;
+    height: 5vh;
+}
+
+.Q2button {
+    width: 100%;
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    height: 10vh;
+}
+
+.logEntry {
+    background-color: lightgray;
+    width: 90vw;
+    height: 90vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.vapeQuestion {
+    width: 80%;
+    height: 15vh;
+    background-color: white;
+    margin-top: 5vh;
+    text-align: center;
+    padding-top: 20px;
+    justify-content: center;
+}
+
+.vapeQuestionOptions {
+    padding-top: 40px;
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+
+}
+
+.vOption {
+    width: 80vw;
+}
+
+.feelings {
     display: flex;
     justify-content: center;
-    padding: 2.5vw;
+}
+
+.feelingOption {
+    padding: 40px;
+    justify-content: center;
+}
+
+.feelingQuestion {
+    width: 80%;
+    height: 15vh;
+    background-color: white;
+    margin-top: 5vh;
+    text-align: center;
+    padding-top: 20px;
+    justify-content: center;
+}
+
+.symptoms {
+    display: flex;
+    justify-content: center;
+}
+
+.symptomOption {
+    padding: 40px;
+    justify-content: center;
+}
+
+.symptomQuestion {
+    width: 80%;
+    height: 15vh;
+    background-color: white;
+    margin-top: 5vh;
+    text-align: center;
+    padding-top: 20px;
+    justify-content: center;
+}
+
+.energyLevels {
+    display: flex;
+    justify-content: center;
+}
+
+.energyOption {
+    padding: 40px;
+    justify-content: center;
+}
+
+.energyQuestion {
+    width: 80%;
+    height: 15vh;
+    background-color: white;
+    margin-top: 5vh;
+    text-align: center;
+    padding-top: 20px;
+    justify-content: center;
 }
