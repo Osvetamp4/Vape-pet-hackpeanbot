@@ -69,8 +69,12 @@ function Q1MoveNext() {
 }
 
 function closeP() {
-    let purchaseForm = document.querySelector(".purchaseEntry");
+    let purchaseForm = document.querySelector("#purchaseEntry");
     purchaseForm.style.display = "none";
+}
+function closeD() {
+    let discardForm = document.querySelector(".discardEntry");
+    discardForm.style.display = "none";
 }
 const Mood = {
     Happy: 2,
