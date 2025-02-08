@@ -181,6 +181,15 @@ app.get("/api/gettimeline",async (request,response)=> {
     })
 })
 
+app.get("/api/getEnergyMood", async (request, response)=> {
+    const requestUser = request.body.username
+    const query = await collection.findOne({username:requestUser})
+    const em = query.energy_mood_timeline
+    response.json({
+        energy_mood_timeline:em
+    })
+})
+
 
 //THIS IS AN EXAMPLE API ROUTE
 //serve the index.html file which is the entry point for our React app
