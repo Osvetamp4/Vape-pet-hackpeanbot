@@ -44,6 +44,19 @@ vapeDiscard.addEventListener("mouseout", () => {
         items[i].style.display = "none";
     }
 });
+let vapeDiscardP = document.querySelector(".vapeTypeP");
+vapeDiscardP.addEventListener("mouseover", () => {
+    let items = document.getElementsByClassName("hoverOptionVapeP");
+    for (let i = 0; i < items.length; i++) {
+        items[i].style.display = "block";
+    }
+});
+vapeDiscardP.addEventListener("mouseout", () => {
+    let items = document.getElementsByClassName("hoverOptionVapeP");
+    for (let i = 0; i < items.length; i++) {
+        items[i].style.display = "none";
+    }
+});
 function onboardEnd() {
     onboardQuestion2.style.visibility = "hidden";
 }
@@ -55,6 +68,10 @@ function Q1MoveNext() {
     onboardQuestion1.style.display = "none";
 }
 
+function closeP() {
+    let purchaseForm = document.querySelector(".purchaseEntry");
+    purchaseForm.style.display = "none";
+}
 const Mood = {
     Happy: 2,
     Neutral: 1,
