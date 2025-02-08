@@ -118,6 +118,7 @@ app.post("/api/getnotes",async (request,response)=>{
     })
 })
 
+// getting the timeline (all start and end dates) for one given user
 app.get("/api/gettimeline",async (request,response)=> {
     const requestUser = request.body.username
     const query = await collection.findOne({username:requestUser})
