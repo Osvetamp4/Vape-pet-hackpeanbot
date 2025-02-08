@@ -86,12 +86,14 @@ class Vape {
 //make json object to send objects to back-end!!
 
 class EnergyMood {
-    constructor(energy, mood) {
+    constructor(energy, mood, date) {
+        this.date = date;
         this.energy = energy;
         this.mood = mood;
     }
     energy;
     mood;
+    date;
 }
 
 class TrackingPurchase {
