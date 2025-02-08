@@ -31,6 +31,19 @@ purchaseCountBox.addEventListener("mouseout", () => {
         items[i].style.display = "none";
     }
 });
+let vapeDiscard = document.querySelector(".vapeType");
+vapeDiscard.addEventListener("mouseover", () => {
+    let items = document.getElementsByClassName("hoverOptionVapeD");
+    for (let i = 0; i < items.length; i++) {
+        items[i].style.display = "block";
+    }
+});
+vapeDiscard.addEventListener("mouseout", () => {
+    let items = document.getElementsByClassName("hoverOptionVapeD");
+    for (let i = 0; i < items.length; i++) {
+        items[i].style.display = "none";
+    }
+});
 function onboardEnd() {
     onboardQuestion2.style.visibility = "hidden";
 }
