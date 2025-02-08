@@ -9,9 +9,9 @@ app.post("/api/logEnergyMood", async (request, response)=> {
     const filter = {username:requestUser}
 
     const package = {
-        logDate:requestDate,
-        logMood:requestMood,
-        logEnergy:requestEnergy
+        date:requestDate,
+        mood:requestMood,
+        energy:requestEnergy
     }
 
     const updateDoc = {
