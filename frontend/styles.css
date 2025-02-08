@@ -248,10 +248,10 @@ body {
     width: 50vw;
     height: 50vh;
     text-align: center;
-    padding-top: 5vh;
     display: flex;
     flex-direction: column;
     align-items: center;
+
 }
 
 .vapeType {
@@ -266,8 +266,94 @@ body {
 .vapeTypeItem {
     height: 30px;
     padding: 10px;
+    background-color: #ffffff;
 }
 
 .hoverOptionVapeD {
     display: none;
+}
+
+.discardOptions {
+    display: flex;
+    justify-content: space-between;
+    width: 50%;
+    padding-top: 20px;
+}
+
+.discardButton {
+    width: 100px;
+    height: 50px;
+    background-color: #ffffff;
+    border: black 1px solid;
+}
+
+.purchaseEntry {
+    background-color: lightgray;
+    width: 50vw;
+    height: 90vh;
+    text-align: center;
+    /* padding-top: 5vh; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#purchaseEntry {
+    display: none;
+}
+
+.vapeTypeP {
+    width: 20%;
+    border: gray 1px solid;
+    display: flex;
+    flex-direction: column;
+    margin: 5vh;
+    position: absolute;
+    margin-top: 15vh;
+
+}
+
+.vapeTypeItemP {
+    height: 30px;
+    padding: 10px;
+    background-color: #ffffff;
+}
+
+.hoverOptionVapeP {
+    display: none;
+}
+
+.vapePurchaseCost {
+    width: 100%;
+    text-align: center;
+}
+
+.purchaseOptions {
+    display: flex;
+    justify-content: space-between;
+    width: 50%;
+    padding-top: 40px;
+}
+
+
+.purchaseButton {
+    width: 100px;
+    height: 50px;
+    background-color: #ffffff;
+    border: black 1px solid;
+}
+
+
+.close {
+    width: 97%;
+    text-align: right;
+    padding: 2vh;
+}
+
+.close:hover {
+    cursor: pointer;
+}
+
+.closeD:hover {
+    cursor: pointer;
 }

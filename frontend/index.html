@@ -111,12 +111,41 @@
     </div>
     <div class="center">
         <div class="discardEntry">
+            <div class="closeD close" onclick="closeD()">X</div>
             <h1>Record Discard</h1>
             <div class="vapeType">
                 <div class="vapeTypeItem"></div>
                 <div class="vapeTypeItem hoverOptionVapeD">imagine</div>
                 <div class="vapeTypeItem hoverOptionVapeD">this</div>
                 <div class="vapeTypeItem hoverOptionVapeD">has stuff</div>
+            </div>
+            <div class="discardOptions">
+                <button class="discardButton">Cancel</button>
+                <button class="discardButton">Confirm</button>
+            </div>
+        </div>
+    </div>
+    <div class="center" style="display:none">
+        <div class="purchaseEntry">
+            <div class="closeP close" onclick="closeP()">X</div>
+            <h1 style="padding-top:5vh;">Record Purchase</h1>
+            <div class="vapeTypeP">
+                <div class="vapeTypeItemP"></div>
+                <div class="vapeTypeItem hoverOptionVapeP">imagine</div>
+                <div class="vapeTypeItem hoverOptionVapeP">this</div>
+                <div class="vapeTypeItem hoverOptionVapeP">has stuff</div>
+            </div>
+            <div class="vapePurchaseCost">
+                <div style="padding-bottom: 5vh; margin-top: 20vh;">How much did it cost?</div>
+                <input type="text" placeholder="Enter Amount" style="height: 5vh">
+            </div>
+            <div class="vapePuffNumber">
+                <div style="padding: 5vh;">How many puffs are in the vape?</div>
+                <input type="text" placeholder="Enter Amount" style="height: 5vh">
+            </div>
+            <div class="purchaseOptions">
+                <button class="purchaseButton">Cancel</button>
+                <button class="purchaseButton">Confirm</button>
             </div>
         </div>
     </div>
