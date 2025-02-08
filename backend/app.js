@@ -29,8 +29,9 @@ const client = new MongoClient(uri,  {
 }
 );
 
-const database = client.db("Notepad");
-const collection = database.collection("Users");
+const database = client.db("Vape-Pet-Database");
+const collection = database.collection("User-Collection");
+
 
 async function run() {
     try {
@@ -79,42 +80,53 @@ process.on('uncaughtException', async (err) => {
 });
 
 
+app.post("/api/logPurchase", async (request,response)=>{
+    
 
-//THIS IS AN EXAMPLE API ROUTE
-app.post("/api/setnotes",async (request,response)=>{
-    const requestDoc = request.body.doc //this becomes our list of JSONs given to us by the frontend
+    const requestDoc = request.body.tracking_purchase //tell the others to format the key like tracking_purchase
 
-    const requestUser = request.body.username //this becomes our username
+    const requestUser = requestDoc.username
 
-    console.log(requestDoc)
-    console.log(requestUser)
-    if (requestDoc.length == 0){
-        response.json({
-            command_type:"set user",
-            message: ' command failed.'
-        })
+    const requestDate = requestDoc.date
 
-        return false
+    const requestVape = requestDoc.vape
+
+    const VapeName = requestVape.name
+
+    const VapePuff = requestVape.puff
+
+    const VapePrice = requestVape.price
+
+    
+
+    const filter = {username:requestUser}
+
+    const package = {
+        brand_id:VapeName,
+        start_date:requestDate,//we might convert this from string into date datatype in the User-Collections
+        end_date:null
     }
 
-    const result = await collection.deleteOne({ username: requestUser });//remove the previous entry with the same user
+    const updateDoc = {//we are appending package to the timeline field in the user's document
+        $push: {
+            timeline:package
+        }
+    }
+    const result = await collection.updateOne(filter, updateDoc);
 
-
-    collection.insertOne(request.body)
-    response.json({
-        command_type:"set notes",
-        message: ' command received successfully'
-    })
+    
 })
 
 
-//THIS IS AN EXAMPLE API ROUTE
-app.post("/api/getnotes",async (request,response)=>{
+
+
+// getting the vape brands inputted by that one specific user
+app.get("/api/getvapebrands", async (request,response)=>{
     const requestUser = request.body.username
     const query = await collection.findOne({username:requestUser})
-    console.log(query.doc)
+    const bd = query.vape_brands
     response.json({
-        notes:query.doc
+        vape_brands:bd
     })
 })
 
@@ -135,6 +147,8 @@ app.get("/api/gettimeline",async (request,response)=> {
 app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname,'frontend', 'dist', 'index.html'));
 });
+
+//WARNING WE WILL NEED TO DEFINETELY CREATE API ROUTES TO SERVE THE HTML FILES
 
 
 

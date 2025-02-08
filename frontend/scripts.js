@@ -114,23 +114,34 @@ class Vape {
 
 //make json object to send objects to back-end!!
 
-class TrackingPurchase {
-    constructor(date, mood, vape) {
-        this.date = date
+class EnergyMood {
+    constructor(energy, mood, date) {
+        this.date = date;
+        this.energy = energy;
         this.mood = mood;
+    }
+    energy;
+    mood;
+    date;
+}
+
+class TrackingPurchase {
+    constructor(username, date, mood, vape) {
+        this.date = date
         this.vape = vape;
+        this.username = username;
     }
     date;
-    mood;  //mood enum
+    username;
     vape;  //vape class to call back
 }
 
 class TrackingThrowaway {
-    constructor(date, mood) {
+    constructor(username, date, mood) {
+        this.username = username;
         this.date = date;
-        this.mood = mood;
     }
     date;
-    mood; //mood enum
+    username;
 }
 

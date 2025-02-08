@@ -3,13 +3,6 @@ const chartScript = document.createElement('script');
 chartScript.src = "https://cdn.jsdelivr.net/npm/chart.js";
 document.head.appendChild(chartScript);
 
-// Mood scale
-const Mood = {
-    Happy: 2,
-    Neutral: 1,
-    Sad: 0
-};
-
 // Vape usage data
 const vapeData = [
     { startDate: "2024-01-01", endDate: "2024-01-03", puffsPerVape: 400, costPerVape: 12, mood: Mood.Happy },
