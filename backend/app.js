@@ -118,6 +118,15 @@ app.post("/api/getnotes",async (request,response)=>{
     })
 })
 
+app.get("/api/gettimeline",async (request,response)=> {
+    const requestUser = request.body.username
+    const query = await collection.findOne({username:requestUser})
+    const tl = query.timeline
+    response.json({
+        timeline:tl
+    })
+})
+
 
 //THIS IS AN EXAMPLE API ROUTE
 //serve the index.html file which is the entry point for our React app
