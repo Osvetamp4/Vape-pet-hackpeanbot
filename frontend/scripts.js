@@ -1,8 +1,9 @@
 let onboardStartBox = document.querySelector(".onboardingContainer");
 let onboardQuestion1 = document.querySelector(".onboardQuestions1");
 let onboardQuestion2 = document.querySelector(".onboardQuestions2");
+let dashboard = document.querySelector(".dashboard")
 function onboardStart() {
-    onboardStartBox.style.visibility = "hidden";
+    onboardStartBox.style.display = "none";
     onboardQuestion1.style.display = "block";
 }
 let vapeCountBox = document.querySelector(".vapeCountBoxItem");
@@ -57,25 +58,53 @@ vapeDiscardP.addEventListener("mouseout", () => {
         items[i].style.display = "none";
     }
 });
-function onboardEnd() {
-    onboardQuestion2.style.visibility = "hidden";
-}
 function Q1MoveSkip() {
     onboardQuestion1.style.display = "none";
+    dashboard.style.display = "flex";
+
 }
 function Q1MoveNext() {
     onboardQuestion2.style.display = "block";
     onboardQuestion1.style.display = "none";
 }
-
+let purchaseForm = document.querySelector("#purchaseEntry");
 function closeP() {
-    let purchaseForm = document.querySelector("#purchaseEntry");
+    purchaseForm.style.zIndex = "0";
     purchaseForm.style.display = "none";
 }
+let discardForm = document.querySelector("#discardEntry");
 function closeD() {
-    let discardForm = document.querySelector(".discardEntry");
+    discardForm.style.zIndex = "0";
     discardForm.style.display = "none";
 }
+function discardEntry() {
+    discardForm.style.display = "flex";
+    console.log(discardForm.style.zIndex);
+    discardForm.style.zIndex = "5";
+}
+function purchaseEntry() {
+    purchaseForm.style.display = "flex";
+    purchaseForm.style.zIndex = "5";
+}
+let logForm = document.querySelector("#logEntry");
+function logEntry() {
+    logForm.style.display = "flex";
+    logForm.style.zIndex = "5";
+}
+function closeL() {
+    logForm.style.display = "none";
+    logForm.style.zIndex = "0";
+}
+function onboardEnd() {
+    onboardQuestion2.style.display = "none";
+    dashboard.style.display = "flex";
+}
+const Mood = {
+    Happy: 2,
+    Neutral: 1,
+    Sad: 0
+}
+
 
 class Vape {
     name;

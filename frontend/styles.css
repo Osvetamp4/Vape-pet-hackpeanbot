@@ -12,7 +12,6 @@ body {
 
 .onboardingContainer {
     position: absolute;
-    visibility: hidden;
 }
 
 .center {
@@ -161,6 +160,14 @@ body {
     display: none;
 }
 
+#discardEntry {
+    display: none;
+}
+
+#logEntry {
+    display: none;
+}
+
 .vapeQuestion {
     width: 80%;
     height: 15vh;
@@ -251,7 +258,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-
+    display: none;
 }
 
 .vapeType {
@@ -354,6 +361,94 @@ body {
     cursor: pointer;
 }
 
-.closeD:hover {
+
+.introduction {
+    width: 65%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.pfp {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #ffffff;
+    border: black 1px solid;
+}
+
+.statsGrid {
+    margin-top: 50px;
+    display: grid;
+    width: 65%;
+    height: 45vh;
+}
+
+
+.entryOptions {
+    display: flex;
+    width: 65%;
+    height: 15vh;
+    background-color: lightgray;
+    margin-top: 50px;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.entryButton {
+    background-color: lightgray;
+    height: 40px;
+}
+
+.gridItem {
+    background-color: lightgray;
+    text-align: center;
+    margin: 10px;
+    font-size: 30px;
+}
+
+
+#savings {
+    grid-column: 1 / span 2;
+    grid-row: 1;
+}
+
+#trajectory {
+    grid-column: 1 / span 2;
+    grid-row: 2;
+    height: 60%;
+}
+
+#monthGlance {
+    grid-column: 3;
+    grid-row: 1 / span 3;
+}
+
+.navBar {
+    height: 8vh;
+    background-color: lightgray;
+    width: 100%;
+    position: absolute;
+    top: 0;
+}
+
+.leftItems {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 70%;
+    height: 100%;
+    padding-left: 50px;
+}
+
+.dashboard {
+    display: none;
+}
+
+.entryButton:hover {
+    cursor: pointer;
+}
+
+.navItem:hover {
     cursor: pointer;
 }
