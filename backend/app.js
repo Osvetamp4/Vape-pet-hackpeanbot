@@ -117,7 +117,22 @@ app.post("/api/logPurchase", async (request,response)=>{
     
 })
 
+app.post("/api/logThrowaway", async (request,response) =>{
+    const requestDoc = request.body.tracking_throwaway //tell others to format the key like tracking_purchase
+    
+    const requestUser = requestDoc.username
 
+    const requestDate = requestDoc.date
+
+    const filter = {username:requestUser}
+
+    const updateDoc = {
+        $set: {
+            "timeline.0.end_date":requestDate
+        }
+    }
+    const result = await collection.updateOne(filter, updateDoc);
+})
 
 
 // getting the vape brands inputted by that one specific user
