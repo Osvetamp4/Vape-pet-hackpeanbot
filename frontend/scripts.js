@@ -76,12 +76,6 @@ function closeD() {
     let discardForm = document.querySelector(".discardEntry");
     discardForm.style.display = "none";
 }
-const Mood = {
-    Happy: 2,
-    Neutral: 1,
-    Sad: 0
-}
-
 
 class Vape {
     name;
@@ -92,22 +86,26 @@ class Vape {
 //make json object to send objects to back-end!!
 
 class TrackingPurchase {
-    constructor(date, mood, vape) {
+    constructor(username, date, mood, vape) {
         this.date = date
         this.mood = mood;
         this.vape = vape;
+        this.username = username;
     }
     date;
-    mood;  //mood enum
+    mood; 
+    username;
     vape;  //vape class to call back
 }
 
 class TrackingThrowaway {
-    constructor(date, mood) {
+    constructor(username, date, mood) {
+        this.username = username;
         this.date = date;
         this.mood = mood;
     }
     date;
-    mood; //mood enum
+    username;
+    mood; 
 }
 
