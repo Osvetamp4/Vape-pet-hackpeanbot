@@ -16,32 +16,39 @@ let dailyData = [
   { date: "2025-01-15", energy: 10, mood: 5 }
 ];
 // const { username } = require('../scripts');
-let username = window.username
+//let username = window.username
 
 const postData = {
-  username:username
+  username:"Joe"
 }
 console.log(postData)
 dailyData = []
-dailyData = await fetch("/api/getEnergyMood",{
-  method:"POST",
-  headers:{
-      'Content-Type':'application/json'
-  },
-  body:JSON.stringify(postData)
-})
-.then(response =>{
-  if (!response.ok){
-      throw new Error('Network response was not ok.')
-      
-  }
-  return response.json()
-})
-.catch(error => {
-  console.error('Error:', error);      // Handle any errors
-});
+
+function dailyDataLoad(){
+  return fetch("/api/getEnergyMood",{
+    method:"POST",
+    headers:{
+        'Content-Type':'application/json'
+    },
+    body:JSON.stringify(postData)
+  })
+  .then(response =>{
+    if (!response.ok){
+        throw new Error('Network response was not ok.')
+        
+    }
+    return response
+  })
+  .catch(error => {
+    console.error('Error:', error);      // Handle any errors
+  });
+}
+
+dailyData = dailyDataLoad()
+
 
 console.log(dailyData)
+
 
 
 
@@ -84,6 +91,8 @@ const moodLabels = {
   6: "Irritated/Angry"
 };
 
+console.log(typeof dailyData)
+console.log(dailyData)
 // Aggregate data
 dailyData.forEach((entry) => {
   const weekKey = getWeek(entry.date);
@@ -162,44 +171,50 @@ let vapeData = [
 
 vapeData = []
 
+function timelineload(){
+  return fetch("/api/gettimeline",{
+    method:"POST",
+    headers:{
+        'Content-Type':'application/json'
+    },
+    body:JSON.stringify(postData)
+  })
+  .then(response =>{
+    if (!response.ok){
+        throw new Error('Network response was not ok.')
+        
+    }
+    return response
+  })
+  .catch(error => {
+    console.error('Error:', error);      // Handle any errors
+  });
+}
 
 
+const timelinetemp = timelineload()
 
-const timelinetemp = await fetch("/api/gettimeline",{
-  method:"POST",
-  headers:{
-      'Content-Type':'application/json'
-  },
-  body:JSON.stringify(postData)
-})
-.then(response =>{
-  if (!response.ok){
-      throw new Error('Network response was not ok.')
-      
-  }
-  return response.json()
-})
-.catch(error => {
-  console.error('Error:', error);      // Handle any errors
-});
+function vape_brand_load(){
+  return fetch("/api/getvapebrands",{
+    method:"POST",
+    headers:{
+        'Content-Type':'application/json'
+    },
+    body:JSON.stringify(postData)
+  })
+  .then(response =>{
+    if (!response.ok){
+        throw new Error('Network response was not ok.')
+        
+    }
+    return response
+  })
+  .catch(error => {
+    console.error('Error:', error);      // Handle any errors
+  });
+}
 
-const vape_brand_temp = await fetch("/api/getvapebrands",{
-  method:"POST",
-  headers:{
-      'Content-Type':'application/json'
-  },
-  body:JSON.stringify(postData)
-})
-.then(response =>{
-  if (!response.ok){
-      throw new Error('Network response was not ok.')
-      
-  }
-  return response.json()
-})
-.catch(error => {
-  console.error('Error:', error);      // Handle any errors
-});
+const vape_brand_temp = vape_brand_load()
 
 timelinetemp.forEach(function(iterator,index){
   let poopoo = {

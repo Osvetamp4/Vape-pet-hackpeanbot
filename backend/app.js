@@ -243,9 +243,12 @@ app.post("/api/gettimeline",async (request,response)=> {
 })
 
 app.post("/api/getEnergyMood", async (request, response)=> {
+    console.log("benchmark 1")
     const requestUser = request.body.username
+    console.log("benchmark 2")
     const query = await collection.findOne({username:requestUser})
     const em = query.energy_mood_timeline
+    console.log(`loggin em: ${em}`)
     response.json({
         energy_mood_timeline:em
     })
