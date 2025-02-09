@@ -12,31 +12,31 @@
     <div class="center">
         <div class="onboardQuestions1">
             <div class="onboardQ1">
-                <h1>First, lets get to know you</h1>
+                <h1 style="color:#ff656a">First, lets get to know you</h1>
             </div>
             <div class="vapeCount selector">
                 <div>On how many days a week do you vape?</div>
                 <br>
-                <div class="vapeCountBox">
-                    <div class="vapeCountBoxItem"></div>
-                    <div class="vapeCountBoxItem hoverOption">1-2</div>
-                    <div class="vapeCountBoxItem hoverOption">3-4</div>
-                    <div class="vapeCountBoxItem hoverOption">Near Daily</div>
+                <div class="vapeCountBox test">
+                    <div class="vapeCountBoxItem test valueHolder"></div>
+                    <div class="vapeCountBoxItem test hoverOption">1-2</div>
+                    <div class="vapeCountBoxItem test hoverOption">3-4</div>
+                    <div class="vapeCountBoxItem test hoverOption">Near Daily</div>
                 </div>
             </div>
             <div class="purchaseCount selector">
-                <div>How many vapes do you buy a week>?</div>
+                <div>How many vapes do you buy a week?</div>
                 <br>
-                <div class="purchaseCountBox">
-                    <div class="purchaseCountBoxItem"></div>
-                    <div class="purchaseCountBoxItem hoverOptionPurchase">1</div>
-                    <div class="purchaseCountBoxItem hoverOptionPurchase">2-3</div>
-                    <div class="purchaseCountBoxItem hoverOptionPurchase">4+</div>
+                <div class="purchaseCountBox pBox ">
+                    <div class="purchaseCountBoxItem pBox valueHolderP bruh"></div>
+                    <div class="purchaseCountBoxItem pBox hoverOptionPurchase">1</div>
+                    <div class="purchaseCountBoxItem pBox hoverOptionPurchase">2-3</div>
+                    <div class="purchaseCountBoxItem pBox hoverOptionPurchase">4+</div>
                 </div>
             </div>
             <div class="moneyCount selector">
-                <div style="margin: 30px"> How much money do you spend on vapes a week?</div>
-                <input type="range" min="1" max="100" value="50" class="slider">
+                <div style="margin-bottom: 60px"> How much money do you spend on vapes a week?</div>
+                <input type="range" min="0" max="100" value="50" class="slider">
                 <div class="sliderRange">
                     <div>0</div>
                     <div>100</div>
@@ -44,12 +44,13 @@
             </div>
             <div class="selectorSmall">
                 <div class="onboardQ1Move" onclick="Q1MoveSkip()">skip</div>
+                <div class="sliderValue">50</div>
                 <div class="onboardQ1Move" onclick="Q1MoveNext()">next</div>
             </div>
         </div>
         <div class="onboardQuestions2 center">
             <div class="onboardQ2">
-                <h1 class="onboardQ2">Lastly, a Gentle Self Reminder</h1>
+                <h1 class="onboardQ2" style="color:#ff656a">Lastly, a Gentle Self Reminder</h1>
             </div>
             <div class="onboardQ2" style="height: 7vh">What is motivating you to reduce your usage?</div>
             <input class="onboardQ2text" type="text"
@@ -144,7 +145,7 @@
     <div class="center dashboard">
         <div class="navBar">
             <div class="leftItems">
-                <div class="navItem" style="padding-left:60px;">Overview</div>
+                <div class="navItem" style="padding-left:30px;">Overview</div>
                 <div class="navItem">Garden</div>
                 <div class="navItem">Insights</div>
                 <div class="navItem">Resources</div>
@@ -153,8 +154,8 @@
         </div>
         <div class="introduction">
             <div class="introHeader">
-                <h1>Hey Larry,</h1> <br>
-                <div>Its great to see you today</div>
+                <h1 style="color:white">Hey Larry,</h1> <br>
+                <div style="color:white">Its great to see you today</div>
             </div>
             <div class="pfp"></div>
         </div>
@@ -167,8 +168,8 @@
         </div>
         <div class="entryOptions">
             <div>
-                <h1>Today's Entry</h1>
-                <div>Date :p</div>
+                <h1 style="color: white;">Today's Entry</h1>
+                <div style="color: white;">Date :p</div>
             </div>
             <button class="entryButton" onclick="logEntry()">Log Entry</button>
             <button class="entryButton" onclick="discardEntry()">Discard Entry</button>
@@ -177,10 +178,10 @@
     </div>
     <div class="onboardingContainer center">
         <div class="onboardingText">
-            <h1>Congratulations!</h1> <br>
+            <h1 style="color:#ff656a">Congratulations!</h1> <br><br>
             <div>You've taken the first steps towards improving your health and wellbeing</div>
-            <br><br><br><br>
-            <div>Plan your next steps <button class="onboardStart" onclick="onboardStart()">-></button> </div>
+            <br><br>
+            <div class="onboardStart" onclick="onboardStart()">Plan your next steps</div>
         </div>
 
     </div>

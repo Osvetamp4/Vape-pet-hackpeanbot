@@ -6,11 +6,11 @@ function onboardStart() {
     onboardStartBox.style.display = "none";
     onboardQuestion1.style.display = "block";
 }
-let vapeCountBox = document.querySelector(".vapeCountBoxItem");
+let items = document.getElementsByClassName("hoverOption");
+let vapeCountBox = document.querySelector(".test");
 vapeCountBox.addEventListener("mouseover", () => {
-    let items = document.getElementsByClassName("hoverOption");
     for (let i = 0; i < items.length; i++) {
-        items[i].style.display = "block";
+        items[i].style.display = "flex";
     }
 });
 vapeCountBox.addEventListener("mouseout", () => {
@@ -19,11 +19,32 @@ vapeCountBox.addEventListener("mouseout", () => {
         items[i].style.display = "none";
     }
 });
-let purchaseCountBox = document.querySelector(".purchaseCountBoxItem");
+let valueHolder = document.querySelector(".valueHolder");
+for (let i = 0; i < items.length; i++) {
+    items[i].addEventListener("click", () => {
+        valueHolder.innerHTML = items[i].innerHTML;
+        valueHolder.style.border = "black 1px solid";
+        for (let i = 0; i < items.length; i++) {
+            items[i].style.display = "none";
+        }
+    });
+}
+let itemsP = document.getElementsByClassName("hoverOptionPurchase");
+let valueHolderP = document.querySelector(".valueHolderP")
+for (let i = 0; i < itemsP.length; i++) {
+    itemsP[i].addEventListener("click", () => {
+        valueHolderP.innerHTML = itemsP[i].innerHTML;
+        valueHolder.style.border = "black 1px solid";
+        for (let i = 0; i < itemsP.length; i++) {
+            itemsP[i].style.display = "none";
+        }
+    });
+}
+let purchaseCountBox = document.querySelector(".pBox");
 purchaseCountBox.addEventListener("mouseover", () => {
     let items = document.getElementsByClassName("hoverOptionPurchase");
     for (let i = 0; i < items.length; i++) {
-        items[i].style.display = "block";
+        items[i].style.display = "flex";
     }
 });
 purchaseCountBox.addEventListener("mouseout", () => {
@@ -64,8 +85,17 @@ function Q1MoveSkip() {
 
 }
 function Q1MoveNext() {
-    onboardQuestion2.style.display = "block";
-    onboardQuestion1.style.display = "none";
+    if (valueHolder.innerHTML == "") {
+        valueHolder.style.border = "red 1px solid";
+        window.alert("Fill in the empty fields!")
+    } else if (valueHolderP.innerHTML == "") {
+        valueHolderP.style.border = "red 1px solid";
+        window.alert("Fill in the empty fields!")
+    }
+    else {
+        onboardQuestion2.style.display = "block";
+        onboardQuestion1.style.display = "none";
+    }
 }
 let purchaseForm = document.querySelector("#purchaseEntry");
 function closeP() {
@@ -99,6 +129,7 @@ function onboardEnd() {
     onboardQuestion2.style.display = "none";
     dashboard.style.display = "flex";
 }
+
 const Mood = {
     Happy: 2,
     Neutral: 1,
@@ -111,7 +142,11 @@ class Vape {
     puffs;
     cost;
 }
-
+let slider = document.querySelector(".slider");
+let sliderDisplay = document.querySelector(".sliderValue");
+slider.oninput = function () {
+    sliderDisplay.innerHTML = this.value;
+}
 //make json object to send objects to back-end!!
 
 class EnergyMood {
