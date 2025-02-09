@@ -8,6 +8,22 @@ body {
     margin: 0;
 }
 
+/* Mood Insight Styling (Matches Insights) */
+.insight-box {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.8;
+    margin-bottom: 20px;
+    padding: 15px;
+    background: #312450;
+    border-radius: 8px;
+    width: 80%;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
 /* Title */
 h2 {
     color: #b7a3f5;
