@@ -140,13 +140,6 @@ function onboardEnd() {
     dashboard.style.display = "flex";
 }
 
-const Mood = {
-    Happy: 2,
-    Neutral: 1,
-    Sad: 0
-}
-
-
 class Vape {
     name;
     puffs;
@@ -160,18 +153,21 @@ slider.oninput = function () {
 //make json object to send objects to back-end!!
 
 class EnergyMood {
-    constructor(energy, mood, date) {
+    constructor(energy, mood, date, username) {
         this.date = date;
         this.energy = energy;
         this.mood = mood;
+        this.username = username;
+
     }
     energy;
     mood;
     date;
+    username;
 }
 
 class TrackingPurchase {
-    constructor(username, date, mood, vape) {
+    constructor(username, date, vape) {
         this.date = date
         this.vape = vape;
         this.username = username;
@@ -182,11 +178,10 @@ class TrackingPurchase {
 }
 
 class TrackingThrowaway {
-    constructor(username, date, mood) {
+    constructor(username, date) {
         this.username = username;
         this.date = date;
     }
     date;
     username;
 }
-
