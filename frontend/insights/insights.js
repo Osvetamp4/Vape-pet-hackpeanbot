@@ -5,7 +5,7 @@ document.head.appendChild(chartScript);
 
 // Daily Data (energy & mood)
 // energy(1–10) and mood(1–6).
-const dailyData = [
+let dailyData = [
   { date: "2025-01-01", energy: 6, mood: 6 },
   { date: "2025-01-02", energy: 8, mood: 1 },
   { date: "2025-01-03", energy: 7 },         // no mood
@@ -15,6 +15,34 @@ const dailyData = [
   { date: "2025-01-13", energy: 4, mood: 3 },
   { date: "2025-01-15", energy: 10, mood: 5 }
 ];
+const { username } = require('../scripts');
+
+const postData = {
+  username:username
+}
+console.log(postData)
+
+dailyData = await fetch("/api/getEnergyMood",{
+  method:"GET",
+  headers:{
+      'Content-Type':'application/json'
+  },
+  body:JSON.stringify(postData)
+})
+.then(response =>{
+  if (!response.ok){
+      throw new Error('Network response was not ok.')
+      
+  }
+  return response.json()
+})
+.catch(error => {
+  console.error('Error:', error);      // Handle any errors
+});
+
+console.log(dailyData)
+
+
 
 // store sums for energy & mood + mood frequency in a single aggregator
 const dailyWeeklyData = {};
@@ -121,7 +149,7 @@ sortedWeeksDaily.forEach((wk) => {
 });
 
 // 2) VAPE USAGE DATA (puffs & cost)
-const vapeData = [
+let vapeData = [
   { startDate: "2024-01-01", endDate: "2024-01-03", puffsPerVape: 400, costPerVape: 12 },
   { startDate: "2024-01-03", endDate: "2024-01-06", puffsPerVape: 500, costPerVape: 14 },
   { startDate: "2024-01-06", endDate: "2024-01-10", puffsPerVape: 600, costPerVape: 16 },
@@ -130,6 +158,65 @@ const vapeData = [
   { startDate: "2024-01-18", endDate: "2024-01-20", puffsPerVape: 450, costPerVape: 15 },
   { startDate: "2024-01-19", endDate: "2024-01-25", puffsPerVape: 350, costPerVape: 12 }
 ];
+
+vapeData = []
+
+
+
+
+const timelinetemp = await fetch("/api/gettimeline",{
+  method:"GET",
+  headers:{
+      'Content-Type':'application/json'
+  },
+  body:JSON.stringify(postData)
+})
+.then(response =>{
+  if (!response.ok){
+      throw new Error('Network response was not ok.')
+      
+  }
+  return response.json()
+})
+.catch(error => {
+  console.error('Error:', error);      // Handle any errors
+});
+
+const vape_brand_temp = await fetch("/api/getvapebrands",{
+  method:"GET",
+  headers:{
+      'Content-Type':'application/json'
+  },
+  body:JSON.stringify(postData)
+})
+.then(response =>{
+  if (!response.ok){
+      throw new Error('Network response was not ok.')
+      
+  }
+  return response.json()
+})
+.catch(error => {
+  console.error('Error:', error);      // Handle any errors
+});
+
+timelinetemp.forEach(function(iterator,index){
+  let package = {
+    startDate:iterator.start_date,
+    endDate:iterator.end_date
+  }
+  vape_brand_temp.forEach(function(jterator,jndex){
+    if (iterator.brand_id == jterator.brand_name){
+      package.puffsPerVape = jterator.totalPuffs
+      package.costPerVape = jiterator.price
+    }
+  })
+
+  vapeData.push(package)
+  
+})
+
+console.log(vapeData)
 
 const vapeWeeklyData = {}; // aggregator for vape usage
 
