@@ -222,7 +222,7 @@ app.post("/api/logEnergyMood", async (request, response)=> {
 
 
 // getting the vape brands inputted by that one specific user
-app.get("/api/getvapebrands", async (request,response)=>{
+app.post("/api/getvapebrands", async (request,response)=>{
     const requestUser = request.body.username
     const query = await collection.findOne({username:requestUser})
     const bd = query.vape_brands
@@ -232,7 +232,7 @@ app.get("/api/getvapebrands", async (request,response)=>{
 })
 
 // getting the timeline (all start and end dates) for one given user
-app.get("/api/gettimeline",async (request,response)=> {
+app.post("/api/gettimeline",async (request,response)=> {
     const requestUser = request.body.username
     
     const query = await collection.findOne({username:requestUser})
@@ -242,7 +242,7 @@ app.get("/api/gettimeline",async (request,response)=> {
     })
 })
 
-app.get("/api/getEnergyMood", async (request, response)=> {
+app.post("/api/getEnergyMood", async (request, response)=> {
     const requestUser = request.body.username
     const query = await collection.findOne({username:requestUser})
     const em = query.energy_mood_timeline
@@ -255,11 +255,14 @@ app.get("/api/getEnergyMood", async (request, response)=> {
 //THIS IS AN EXAMPLE API ROUTE
 //serve the index.html file which is the entry point for our React app
 
-app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname,'../','frontend','index.html'),(err)=>{
-        if (err){res.status(404).send("File not found");}
-    });
-});
+// app.get('*', (req, res) => {
+//     res.sendFile(path.join(__dirname,'../','frontend','index.html'),(err)=>{
+//         if (err){res.status(404).send("File not found");}
+//     });
+// });
+//app.use(express.static('frontend'));
+app.use(express.static(path.join(__dirname, '../frontend')));
+
 
 //WARNING WE WILL NEED TO DEFINETELY CREATE API ROUTES TO SERVE THE HTML FILES
 

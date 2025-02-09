@@ -15,15 +15,16 @@ let dailyData = [
   { date: "2025-01-13", energy: 4, mood: 3 },
   { date: "2025-01-15", energy: 10, mood: 5 }
 ];
-const { username } = require('../scripts');
+// const { username } = require('../scripts');
+let username = window.username
 
 const postData = {
   username:username
 }
 console.log(postData)
-
+dailyData = []
 dailyData = await fetch("/api/getEnergyMood",{
-  method:"GET",
+  method:"POST",
   headers:{
       'Content-Type':'application/json'
   },
@@ -165,7 +166,7 @@ vapeData = []
 
 
 const timelinetemp = await fetch("/api/gettimeline",{
-  method:"GET",
+  method:"POST",
   headers:{
       'Content-Type':'application/json'
   },
@@ -183,7 +184,7 @@ const timelinetemp = await fetch("/api/gettimeline",{
 });
 
 const vape_brand_temp = await fetch("/api/getvapebrands",{
-  method:"GET",
+  method:"POST",
   headers:{
       'Content-Type':'application/json'
   },
@@ -201,18 +202,18 @@ const vape_brand_temp = await fetch("/api/getvapebrands",{
 });
 
 timelinetemp.forEach(function(iterator,index){
-  let package = {
+  let poopoo = {
     startDate:iterator.start_date,
     endDate:iterator.end_date
   }
   vape_brand_temp.forEach(function(jterator,jndex){
     if (iterator.brand_id == jterator.brand_name){
-      package.puffsPerVape = jterator.totalPuffs
-      package.costPerVape = jiterator.price
+      poopoo.puffsPerVape = jterator.totalPuffs
+      poopoo.costPerVape = jterator.price
     }
   })
 
-  vapeData.push(package)
+  vapeData.push(poopoo)
   
 })
 
