@@ -3,7 +3,7 @@ let onboardQuestion1 = document.querySelector(".onboardQuestions1");
 let onboardQuestion2 = document.querySelector(".onboardQuestions2");
 let dashboard = document.querySelector(".dashboard")
 let startName = document.querySelector(".onboardStartName");
-export let username;
+// export let username;
 function onboardStart() {
     onboardStartBox.style.display = "none";
     onboardQuestion1.style.display = "block";
@@ -15,6 +15,7 @@ let vapeCountBox = document.querySelector(".test");
 vapeCountBox.addEventListener("mouseover", () => {
     for (let i = 0; i < items.length; i++) {
         items[i].style.display = "flex";
+        items[i].style.zIndex = "6";
     }
 });
 vapeCountBox.addEventListener("mouseout", () => {
@@ -38,7 +39,7 @@ let valueHolderP = document.querySelector(".valueHolderP")
 for (let i = 0; i < itemsP.length; i++) {
     itemsP[i].addEventListener("click", () => {
         valueHolderP.innerHTML = itemsP[i].innerHTML;
-        valueHolder.style.border = "black 1px solid";
+        valueHolderP.style.border = "0";
         for (let i = 0; i < itemsP.length; i++) {
             itemsP[i].style.display = "none";
         }
@@ -130,6 +131,13 @@ function closeL() {
     for (let i = 0; i < emotions.length; i++) {
         emotions[i].style.border = "0";
     }
+    for (let i = 0; i < energyLevel.length; i++) {
+        energyLevel[i].style.backgroundColor = " #f6f1ea";
+    }
+    for (let i = 0; i < symptoms.length; i++) {
+        symptoms[i].style.border = "0";
+    }
+
 }
 function onboardEnd() {
     onboardQuestion2.style.display = "none";
@@ -152,6 +160,26 @@ for (let i = 0; i < emotions.length; i++) {
         }
         emotions[i].style.border = "black 1px solid";
     })
+}
+let symptoms = document.getElementsByClassName("symptomOption");
+for (let i = 0; i < symptoms.length; i++) {
+    symptoms[i].addEventListener("click", () => {
+        for (let i = 0; i < symptoms.length; i++) {
+            symptoms[i].style.border = "0";
+        }
+        symptoms[i].style.border = "black 1px solid";
+    });
+
+
+}
+let energyLevel = document.getElementsByClassName("energyOption");
+for (let i = 0; i < energyLevel.length; i++) {
+    energyLevel[i].addEventListener("click", () => {
+        for (let i = 0; i < energyLevel.length; i++) {
+            energyLevel[i].style.backgroundColor = " #f6f1ea";
+        }
+        energyLevel[i].style.backgroundColor = "#fed700";
+    });
 }
 class Vape {
     name;
