@@ -15,13 +15,14 @@ let dailyData = [
   { date: "2025-01-13", energy: 4, mood: 3 },
   { date: "2025-01-15", energy: 10, mood: 5 }
 ];
-const { username } = require('../scripts');
+// const { username } = require('../scripts');
+let username = window.username
 
 const postData = {
   username:username
 }
 console.log(postData)
-
+dailyData = []
 dailyData = await fetch("/api/getEnergyMood",{
   method:"GET",
   headers:{
@@ -208,7 +209,7 @@ timelinetemp.forEach(function(iterator,index){
   vape_brand_temp.forEach(function(jterator,jndex){
     if (iterator.brand_id == jterator.brand_name){
       package.puffsPerVape = jterator.totalPuffs
-      package.costPerVape = jiterator.price
+      package.costPerVape = jterator.price
     }
   })
 

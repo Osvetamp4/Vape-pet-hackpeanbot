@@ -3,12 +3,13 @@ let onboardQuestion1 = document.querySelector(".onboardQuestions1");
 let onboardQuestion2 = document.querySelector(".onboardQuestions2");
 let dashboard = document.querySelector(".dashboard")
 let startName = document.querySelector(".onboardStartName");
-// export let username;
+window.username = undefined
 function onboardStart() {
     onboardStartBox.style.display = "none";
     onboardQuestion1.style.display = "block";
     username = startName.value;
 }
+
 
 let items = document.getElementsByClassName("hoverOption");
 let vapeCountBox = document.querySelector(".test");

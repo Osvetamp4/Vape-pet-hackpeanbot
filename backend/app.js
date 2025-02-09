@@ -255,11 +255,14 @@ app.get("/api/getEnergyMood", async (request, response)=> {
 //THIS IS AN EXAMPLE API ROUTE
 //serve the index.html file which is the entry point for our React app
 
-app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname,'../','frontend','index.html'),(err)=>{
-        if (err){res.status(404).send("File not found");}
-    });
-});
+// app.get('*', (req, res) => {
+//     res.sendFile(path.join(__dirname,'../','frontend','index.html'),(err)=>{
+//         if (err){res.status(404).send("File not found");}
+//     });
+// });
+//app.use(express.static('frontend'));
+app.use(express.static(path.join(__dirname, '../frontend')));
+
 
 //WARNING WE WILL NEED TO DEFINETELY CREATE API ROUTES TO SERVE THE HTML FILES
 
