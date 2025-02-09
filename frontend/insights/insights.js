@@ -19,7 +19,7 @@ let dailyData = [
 //let username = window.username
 
 const postData = {
-  username:"Joe"
+  username:"Joe"//CHANGE THIS
 }
 console.log(postData)
 dailyData = []

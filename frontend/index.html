@@ -79,11 +79,11 @@
             <div class="feelingQuestion logBorder">
                 <div>How do you feel today?</div>
                 <div class="feelings">
-                    <div class="feelingOption"><img src="Images/Emotions/Angry.png" class="Emotions">Angry</div>
-                    <div class="feelingOption"><img src="Images/Emotions/Sad.png" class="Emotions">Sad</div>
-                    <div class="feelingOption"><img src="Images/Emotions/Neutral.png" class="Emotions">Neutral</div>
-                    <div class="feelingOption"><img src="Images/Emotions/Happy.png" class="Emotions">Good</div>
-                    <div class="feelingOption"><img src="Images/Emotions/Smiling.png" class="Emotions">Great</div>
+                    <button class="feelingOption"><img src="Images/Emotions/Angry.png" class="Emotions" onclick="window.currentMood=5;">Angry</button>
+                    <button class="feelingOption"><img src="Images/Emotions/Sad.png" class="Emotions" onclick="window.currentMood=4;">Sad</button>
+                    <button class="feelingOption"><img src="Images/Emotions/Neutral.png" class="Emotions" onclick="window.currentMood=3;">Neutral</button>
+                    <button class="feelingOption"><img src="Images/Emotions/Happy.png" class="Emotions" onclick="window.currentMood=2;">Good</button>
+                    <button class="feelingOption"><img src="Images/Emotions/Smiling.png" class="Emotions" onclick="window.currentMood=1;">Great</button>
                 </div>
             </div>
             <div class="symptomQuestion logBorder">
@@ -106,19 +106,19 @@
             <div class="energyQuestion logBorder">
                 <div>How is your overall energy level?</div>
                 <div class="energyLevels">
-                    <div class="energyOption">1
-                    </div>
-                    <div class="energyOption">2</div>
-                    <div class="energyOption">3</div>
-                    <div class="energyOption">4</div>
-                    <div class="energyOption">5
-                    </div>
-                    <div class="energyOption">6</div>
-                    <div class="energyOption">7</div>
-                    <div class="energyOption">8</div>
-                    <div class="energyOption">9</div>
-                    <div class="energyOption">10
-                    </div>
+                    <button class="energyOption" onclick="window.currentNumber = 1;">1
+                    </button>
+                    <button class="energyOption" onclick="window.currentNumber = 2;">2</button>
+                    <button class="energyOption" onclick="window.currentNumber = 3;">3</button>
+                    <button class="energyOption" onclick="window.currentNumber = 4;">4</button>
+                    <button class="energyOption" onclick="window.currentNumber = 5;">5
+                    </button>
+                    <button class="energyOption" onclick="window.currentNumber = 6;">6</button>
+                    <button class="energyOption" onclick="window.currentNumber = 7;">7</button>
+                    <button class="energyOption" onclick="window.currentNumber = 8;">8</button>
+                    <button class="energyOption" onclick="window.currentNumber = 9;">9</button>
+                    <button class="energyOption" onclick="window.currentNumber = 10;">10
+                    </button>
                 </div>
             </div>
             <button class="submitLog" onclick="submitL()">Submit</button>
@@ -148,12 +148,12 @@
             <input id='newEntry' type="text" placeholder="New Entry" style="margin-top:225px; position: absolute;">
             <div class="vapePurchaseCost">
                 <div style="padding-bottom: 1vh; margin-top: 15vh;">How much did it cost?</div>
-                <input type="text" placeholder="Enter Amount"
+                <input class="vapePurchaseCostInput" type="text" placeholder="Enter Amount"
                     style="height: 5vh;    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border: 0;padding-left:10px; outline: none;">
             </div>
             <div class="vapePuffNumber">
                 <div style="padding-top: 5vh; padding-bottom: 1vh;">How many puffs are in the vape?</div>
-                <input type="text" placeholder="Enter Amount"
+                <input class = "vapePuffNumberInput" type="text" placeholder="Enter Amount"
                     style="height: 5vh;     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border: 0; padding-left:10px; outline: none;">
             </div>
             <div class="purchaseOptions">
@@ -174,7 +174,7 @@
         </div>
         <div class="introduction">
             <div class="introHeader">
-                <h1 style="color:white">Hey *NAME*,</h1> <br>
+                <h1 style="color:white" id="nameofuser">Hey *NAME*,</h1> <br>
                 <!-- Add a div on NAME to insert innerHTML in js using a fetch! -->
                 <div style="color:white">Its great to see you today</div>
             </div>

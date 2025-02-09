@@ -3,11 +3,13 @@ let onboardQuestion1 = document.querySelector(".onboardQuestions1");
 let onboardQuestion2 = document.querySelector(".onboardQuestions2");
 let dashboard = document.querySelector(".dashboard")
 let startName = document.querySelector(".onboardStartName");
+window.currentNumber = 1
+window.currentMood = 1
 window.username = undefined
 function onboardStart() {
     onboardStartBox.style.display = "none";
     onboardQuestion1.style.display = "block";
-    username = startName.value;
+    window.username = startName.value;
 }
 
 
@@ -82,6 +84,7 @@ function Q1MoveSkip() {
 
 }
 function Q1MoveNext() {
+    document.getElementById("nameofuser").innerHTML = `Hey ${window.username},`
     if (valueHolder.innerHTML == "") {
         valueHolder.style.border = "red 1px solid";
         window.alert("Fill in the empty fields!")
@@ -102,18 +105,101 @@ function closeP() {
 function submitP() {
     purchaseForm.style.zIndex = "0";
     purchaseForm.style.display = "none";
-    //add object creation based on things
+    let puffInput = document.getElementsByClassName("vapePuffNumberInput").value
+    let vapeCostInput = document.getElementsByClassName("vapePurchaseCostInput").value
+    let vapeNameInput = document.getElementById("newEntry").value
+    let currentDate = new Date();
+    let year = currentDate.getFullYear(); // Get the year
+    let month = currentDate.getMonth() + 1; // Get the month (Note: months are 0-indexed)
+    let day = currentDate.getDate(); // Get the day of the month
+    const dateString = year + "-" + day + "-" + month
+    const vapeobj = new Vape(vapeNameInput,puffInput,vapeCostInput)
+    const tempPurchase = new TrackingPurchase(window.username,dateString,vapeobj)
+    const postData = {
+        tracking_purchase:tempPurchase
+    }
+
+    fetch("/api/logPurchase",{
+        method:"POST",
+        headers:{
+            'Content-Type':'application/json'
+        },
+        body:JSON.stringify(postData)
+      })
+      .then(response =>{
+        if (!response.ok){
+            throw new Error('Network response was not ok.')
+            
+        }
+        return response.json()
+      })
+      .catch(error => {
+        console.error('Error:', error);      // Handle any errors
+      });
 }
 let discardForm = document.querySelector("#discardEntry");
 function submitD() {
     discardForm.style.zIndex = "0";
     discardForm.style.display = "none";
-    //add object creation based on things
+    let currentDate = new Date();
+    let year = currentDate.getFullYear(); // Get the year
+    let month = currentDate.getMonth() + 1; // Get the month (Note: months are 0-indexed)
+    let day = currentDate.getDate(); // Get the day of the month
+    const dateString = year + "-" + day + "-" + month
+    const tempThrowaway = new TrackingThrowaway(window.username,dateString)
+
+    const postData = {
+        tracking_throwaway:tempThrowaway
+    }
+    fetch("/api/logThrowaway",{
+        method:"POST",
+        headers:{
+            'Content-Type':'application/json'
+        },
+        body:JSON.stringify(postData)
+      })
+      .then(response =>{
+        if (!response.ok){
+            throw new Error('Network response was not ok.')
+            
+        }
+        return response.json()
+      })
+      .catch(error => {
+        console.error('Error:', error);      // Handle any errors
+      });
 }
 
 function submitL() {
     closeL();
-    //add object creation based on things
+    let currentDate = new Date();
+    let year = currentDate.getFullYear(); // Get the year
+    let month = currentDate.getMonth() + 1; // Get the month (Note: months are 0-indexed)
+    let day = currentDate.getDate(); // Get the day of the month
+    const dateString = year + "-" + day + "-" + month
+    const tempEnergyMood = new EnergyMood(window.currentNumber,window.currentMood,dateString,window.username)
+
+    const postData = {
+        energy_mood:tempEnergyMood
+    }
+
+    fetch("/api/logEnergyMood",{
+        method:"POST",
+        headers:{
+            'Content-Type':'application/json'
+        },
+        body:JSON.stringify(postData)
+      })
+      .then(response =>{
+        if (!response.ok){
+            throw new Error('Network response was not ok.')
+            
+        }
+        return response.json()
+      })
+      .catch(error => {
+        console.error('Error:', error);      // Handle any errors
+      });
 }
 function closeD() {
     discardForm.style.display = "none";
@@ -192,6 +278,11 @@ for (let i = 0; i < energyLevel.length; i++) {
     });
 }
 class Vape {
+    constructor(name,puffs,cost){
+        this.name = name
+        this.puffs = puffs
+        this.cost = cost
+    }
     name;
     puffs;
     cost;
