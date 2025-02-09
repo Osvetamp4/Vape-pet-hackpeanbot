@@ -17,7 +17,7 @@ const DB_PASSWORD = process.env.db_password;
 
 const uri = "mongodb+srv://" + DB_USERNAME + ":" + DB_PASSWORD + "@vape-cluster.okno4.mongodb.net/?retryWrites=true&w=majority&appName=Vape-Cluster"
 
-
+console.log(uri)
 
 // Create a MongoClient with a MongoClientOptions object to set the Stable API version
 const client = new MongoClient(uri,  {
@@ -34,18 +34,24 @@ const collection = database.collection("User-Collection");
 
 
 async function run() {
+    console.log(DB_USERNAME)
+    console.log(DB_PASSWORD)
     try {
       // Connect the client to the server
       await client.connect();
       // Send a ping to confirm a successful connection
+      //const database = client.db("Vape-Pet-Database");
+      //const collection = database.collection("User-Collection");
       await client.db("admin").command({ ping: 1 });
       console.log("Pinged your deployment. You successfully connected to MongoDB!");
     } finally {
       // We don't want the connection to immediately close so we'll just pass for now.
-      pass
+      return
     }
 }
 run().catch(console.dir);
+
+
 
 //this section here handles all sorts of crashes and server terminations so that Mongodb shuts off gracefully.
 
