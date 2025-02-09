@@ -65,7 +65,7 @@ dailyData.forEach((entry) => {
     dailyWeeklyData[weekKey] = {
       totalEnergy: 0,
       energyCount: 0,
-      moodFrequency: {1:0, 2:0, 3:0, 4:0, 5:0, 6:0}
+      moodFrequency: { 1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0 }
     };
   }
 
@@ -206,7 +206,7 @@ if (costChange < 0) {
 }
 
 // make the charts
-window.onload = function() {
+window.onload = function () {
   // Puffs per week (line chart)
   new Chart(document.getElementById("puffsChart").getContext("2d"), {
     type: "line",

@@ -255,21 +255,29 @@ body {
 .feelings {
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 
 .feelingOption {
-    padding: 40px;
-    justify-content: center;
+    padding-left: 20px;
+    padding-right: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.feelingOption:hover {
+    cursor: pointer;
+    border: black 1px solid;
 }
 
 .feelingQuestion {
     width: 80%;
-    height: 15vh;
+    height: 20vh;
     background-color: white;
     margin-top: 5vh;
     text-align: center;
-    padding-top: 20px;
     justify-content: center;
+    padding-top: 3vh;
 }
 
 .symptoms {

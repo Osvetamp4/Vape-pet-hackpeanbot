@@ -2,9 +2,12 @@ let onboardStartBox = document.querySelector(".onboardingContainer");
 let onboardQuestion1 = document.querySelector(".onboardQuestions1");
 let onboardQuestion2 = document.querySelector(".onboardQuestions2");
 let dashboard = document.querySelector(".dashboard")
+let startName = document.querySelector(".onboardStartName");
 function onboardStart() {
     onboardStartBox.style.display = "none";
     onboardQuestion1.style.display = "block";
+    let username = startName.value;
+    console.log(username);
 }
 let items = document.getElementsByClassName("hoverOption");
 let vapeCountBox = document.querySelector(".test");
@@ -139,6 +142,8 @@ function onboardEnd() {
     onboardQuestion2.style.display = "none";
     dashboard.style.display = "flex";
 }
+
+let emotionOptions = document.getElementsByClassName("")
 
 class Vape {
     name;
