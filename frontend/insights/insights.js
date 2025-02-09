@@ -37,22 +37,30 @@ function dailyDataLoad(){
         throw new Error('Network response was not ok.')
         
     }
-    return response
+    return response.json()
   })
   .catch(error => {
     console.error('Error:', error);      // Handle any errors
   });
 }
 
-dailyData = dailyDataLoad()
+let dominantMoodText
+let weekLabelsForEnergy
+let avgEnergyPerWeek
 
+async function main(){
+  let dailyData = await dailyDataLoad()
+  console.log("Resolved dailyData",dailyData)
 
-console.log(dailyData)
+  dailyData = dailyData.energy_mood_timeline
 
-
-
-
-// store sums for energy & mood + mood frequency in a single aggregator
+  if (!Array.isArray(dailyData)){
+    console.log("type of dailyData",typeof dailyData)
+    console.log(dailyData)
+    console.error("Error: dailyData is not an array! fuck you")
+    return
+  }
+  // store sums for energy & mood + mood frequency in a single aggregator
 const dailyWeeklyData = {};
 
 // Convert date to "YYYY-Wn" week format
@@ -91,8 +99,8 @@ const moodLabels = {
   6: "Irritated/Angry"
 };
 
-console.log(typeof dailyData)
-console.log(dailyData)
+console.log("type of dailyData",typeof dailyData)
+console.log("dailyData",dailyData)
 // Aggregate data
 dailyData.forEach((entry) => {
   const weekKey = getWeek(entry.date);
@@ -123,11 +131,11 @@ dailyData.forEach((entry) => {
 const sortedWeeksDaily = Object.keys(dailyWeeklyData).sort();
 
 // two arrays for the energy chart + find the most often mood for the last week
-const weekLabelsForEnergy = [];
-const avgEnergyPerWeek = [];
+weekLabelsForEnergy = [];
+avgEnergyPerWeek = [];
 
 let lastWeekKeyDaily = sortedWeeksDaily[sortedWeeksDaily.length - 1] || null;
-let dominantMoodText = "No mood data";
+dominantMoodText = "No mood data";
 
 sortedWeeksDaily.forEach((wk) => {
   // Label the chart axis with a readable date range
@@ -157,6 +165,9 @@ sortedWeeksDaily.forEach((wk) => {
     }
   }
 });
+}
+
+main()
 
 // 2) VAPE USAGE DATA (puffs & cost)
 let vapeData = [
@@ -184,15 +195,20 @@ function timelineload(){
         throw new Error('Network response was not ok.')
         
     }
-    return response
+    return response.json()
   })
   .catch(error => {
     console.error('Error:', error);      // Handle any errors
   });
 }
+let timelinetemp;
+async function main2(){
+  timelinetemp = await timelineload()
 
+  timelinetemp = timelinetemp.timeline
+}
 
-const timelinetemp = timelineload()
+main2()
 
 function vape_brand_load(){
   return fetch("/api/getvapebrands",{
@@ -207,30 +223,39 @@ function vape_brand_load(){
         throw new Error('Network response was not ok.')
         
     }
-    return response
+    return response.json()
   })
   .catch(error => {
     console.error('Error:', error);      // Handle any errors
   });
 }
 
-const vape_brand_temp = vape_brand_load()
+let vape_brand_temp;
 
-timelinetemp.forEach(function(iterator,index){
-  let poopoo = {
-    startDate:iterator.start_date,
-    endDate:iterator.end_date
-  }
-  vape_brand_temp.forEach(function(jterator,jndex){
-    if (iterator.brand_id == jterator.brand_name){
-      poopoo.puffsPerVape = jterator.totalPuffs
-      poopoo.costPerVape = jterator.price
+async function main3(){
+  vape_brand_temp = await vape_brand_load()
+  vape_brand_temp = vape_brand_temp.vape_brands
+
+  timelinetemp.forEach(function(iterator,index){
+    let poopoo = {
+      startDate:iterator.start_date,
+      endDate:iterator.end_date
     }
-  })
-
-  vapeData.push(poopoo)
+    vape_brand_temp.forEach(function(jterator,jndex){
+      if (iterator.brand_id == jterator.brand_name){
+        poopoo.puffsPerVape = jterator.totalPuffs
+        poopoo.costPerVape = jterator.price
+      }
+    })
   
-})
+    vapeData.push(poopoo)
+    
+  })
+}
+
+
+main3()
+
 
 console.log(vapeData)
 
