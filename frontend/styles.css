@@ -180,7 +180,7 @@ body {
 
 .onboardQ2Move {
     border: #ff656a 1px solid;
-    border-radius: 10%;
+    border-radius: 16px;
     background-color: #ffffff;
     height: 5vh;
     width: 12vw;
@@ -199,21 +199,27 @@ body {
 }
 
 .logEntry {
-    background-color: lightgray;
+    background-color: #f6f1ea;
     width: 90vw;
-    height: 90vh;
+    height: 95vh;
     display: flex;
     align-items: center;
     flex-direction: column;
-    display: none;
+}
+
+.logBorder {
+    border: #ff656a 1px solid;
+    border-radius: 16px;
 }
 
 #discardEntry {
     display: none;
+    background-color: rgba(255, 255, 255, 0.8);
 }
 
 #logEntry {
     display: none;
+    background-color: rgba(255, 255, 255, 0.8);
 }
 
 .vapeQuestion {
@@ -227,15 +233,23 @@ body {
 }
 
 .vapeQuestionOptions {
-    padding-top: 40px;
+    padding-top: 20px;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     text-align: center;
 
 }
 
 .vOption {
-    width: 80vw;
+    width: 140px;
+    border: black 1px solid;
+    border-radius: 16px;
+    font-size: 16px;
+}
+
+.vOption:hover {
+    cursor: pointer;
+    background-color: #fed700;
 }
 
 .feelings {
@@ -299,8 +313,10 @@ body {
 }
 
 .discardEntry {
-    background-color: lightgray;
-    width: 50vw;
+    background-color: #f6f1ea;
+    border: #ff656a 1px solid;
+    border-radius: 16px;
+    width: 30vw;
     height: 50vh;
     text-align: center;
     display: flex;
@@ -309,11 +325,13 @@ body {
 }
 
 .vapeType {
-    width: 20%;
+    width: 15%;
     border: gray 1px solid;
     display: flex;
     flex-direction: column;
     margin: 5vh;
+    position: absolute;
+    top: 40vh;
 
 }
 
@@ -321,6 +339,14 @@ body {
     height: 30px;
     padding: 10px;
     background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.vapeTypeItem:hover {
+    background-color: lightgray;
+    cursor: pointer;
 }
 
 .hoverOptionVapeD {
@@ -329,9 +355,9 @@ body {
 
 .discardOptions {
     display: flex;
-    justify-content: space-between;
-    width: 50%;
-    padding-top: 20px;
+    justify-content: center;
+    width: 110%;
+    padding-top: 22vh;
 }
 
 .discardButton {
@@ -341,9 +367,13 @@ body {
     border: black 1px solid;
 }
 
+.discardButton:hover {
+    cursor: pointer;
+}
+
 .purchaseEntry {
     background-color: #f6f1ea;
-    width: 20vw;
+    width: 30vw;
     height: 80vh;
     text-align: center;
     /* padding-top: 5vh; */
@@ -402,11 +432,15 @@ body {
     border-radius: 10px;
 }
 
+.purchaseButton:hover {
+    cursor: pointer;
+}
 
 .close {
     width: 97%;
     text-align: right;
-    padding: 2vh;
+    padding-top: 2vh;
+    padding-right: 2vh;
 }
 
 .close:hover {
@@ -467,8 +501,11 @@ body {
     border: #ff656a 1px solid;
     text-align: center;
     margin: 10px;
-    font-size: 30px;
-    border-radius: 5px;
+    font-size: 20px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 
@@ -580,4 +617,30 @@ body {
 
 div {
     font-size: 20px;
+}
+
+.onboardStartName {
+    border-radius: 16px;
+    background-color: #ffffff;
+    width: 160px;
+    height: 46px;
+    border: #ff656a 1px solid;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+}
+
+.startButton {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+h1 {
+    font-family: "Unbounded", serif;
+}
+
+div {
+    font-family: "Nunito sans", sans-serif;
 }

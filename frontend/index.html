@@ -5,6 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Unbounded:wght@200..900&display=swap"
+        rel="stylesheet">
     <title>Document</title>
 </head>
 
@@ -61,16 +66,17 @@
         </div>
     </div>
     <div class="center" id="logEntry">
-        <div class="logEntry">
+        <div class="logEntry logBorder">
             <div class="closeL close" onclick="closeL()">X</div>
-            <div class="vapeQuestion">
+            <h1 style="text-align: left; color: #ff656a; width: 100%; padding-left: 10%;">Today's log</h1>
+            <div class="vapeQuestion logBorder">
                 <div>Did you vape today?</div>
                 <div class="vapeQuestionOptions">
                     <div class="vOption">Yes</div>
                     <div class="vOption">No</div>
                 </div>
             </div>
-            <div class="feelingQuestion">
+            <div class="feelingQuestion logBorder">
                 <div>How do you feel today?</div>
                 <div class="feelings">
                     <div class="feelingOption">Angry</div>
@@ -80,8 +86,8 @@
                     <div class="feelingOption">Great</div>
                 </div>
             </div>
-            <div class="symptomQuestion">
-                <div>How do you feel today?</div>
+            <div class="symptomQuestion logBorder">
+                <div>Have you experience any of these symptoms?</div>
                 <div class="symptoms">
                     <div class="symptomOption">gdagdag</div>
                     <div class="symptomOption">gdag</div>
@@ -90,7 +96,7 @@
                     <div class="symptomOption">asfas</div>
                 </div>
             </div>
-            <div class="energyQuestion">
+            <div class="energyQuestion logBorder">
                 <div>How is your overall energy level?</div>
                 <div class="energyLevels">
                     <div class="energyOption">gdagdag</div>
@@ -105,15 +111,16 @@
     <div class="center" id="discardEntry">
         <div class="discardEntry">
             <div class="closeD close" onclick="closeD()">X</div>
-            <h1>Record Discard</h1>
+            <h1 style="font-size:30px; color:#ff656a;">
+                Record<br> Discard</h1>
             <div class="vapeType">
-                <div class="vapeTypeItem"></div>
+                <div class="vapeTypeItem valueHolderD"></div>
                 <div class="vapeTypeItem hoverOptionVapeD">imagine</div>
                 <div class="vapeTypeItem hoverOptionVapeD">this</div>
                 <div class="vapeTypeItem hoverOptionVapeD">has stuff</div>
             </div>
             <div class="discardOptions">
-                <button class="discardButton">Confirm</button>
+                <button class="discardButton" onclick="submitD()">Confirm</button>
             </div>
         </div>
     </div>
@@ -160,8 +167,8 @@
             <div class="pfp"></div>
         </div>
         <div class="statsGrid">
-            <div class="gridItem" id="savings"></div>
-            <div class="gridItem" id="trajectory"></div>
+            <div class="gridItem" id="savings">Your usage decrease by *VALUE*<br>Keep up the good work!</div>
+            <div class="gridItem" id="trajectory">You saved *VALUE* this week!</div>
             <div class="gridItem" id="userDayCount"></div>
             <div class="gridItem" id="gardenOverview"></div>
             <div class="gridItem" id="monthGlance"></div>
@@ -179,9 +186,17 @@
     <div class="onboardingContainer center">
         <div class="onboardingText">
             <h1 style="color:#ff656a; font-size: 50px;">Congratulations!</h1> <br><br>
-            <div style="font-size: 24px;">You've taken the first steps towards improving your health and wellbeing</div>
-            <br><br>
-            <div class="onboardStart" onclick="onboardStart()">Plan your next steps</div>
+            <div style="font-size: 24px;">You've taken the first steps towards improving your health and wellbeing<br>
+                <br>But
+                first, let's get to know you...
+            </div>
+            <br>
+            <div class="startButton">
+                <input class="onboardStartName" type="text" placeholder="Enter your name"
+                    style="padding-left:5px; text-align: center; margin-bottom: 2.5vh; font-size:15px">
+
+                <div class="onboardStart" onclick="onboardStart()">Plan your next steps</div>
+            </div>
         </div>
 
     </div>

@@ -57,7 +57,7 @@ let vapeDiscard = document.querySelector(".vapeType");
 vapeDiscard.addEventListener("mouseover", () => {
     let items = document.getElementsByClassName("hoverOptionVapeD");
     for (let i = 0; i < items.length; i++) {
-        items[i].style.display = "block";
+        items[i].style.display = "flex";
     }
 });
 vapeDiscard.addEventListener("mouseout", () => {
@@ -70,7 +70,7 @@ let vapeDiscardP = document.querySelector(".vapeTypeP");
 vapeDiscardP.addEventListener("mouseover", () => {
     let items = document.getElementsByClassName("hoverOptionVapeP");
     for (let i = 0; i < items.length; i++) {
-        items[i].style.display = "block";
+        items[i].style.display = "flex";
     }
 });
 vapeDiscardP.addEventListener("mouseout", () => {
@@ -108,6 +108,11 @@ function submitP() {
     //add object creation based on things
 }
 let discardForm = document.querySelector("#discardEntry");
+function submitD() {
+    discardForm.style.zIndex = "0";
+    discardForm.style.display = "none";
+    //add object creation based on things
+}
 function closeD() {
     discardForm.style.display = "none";
     discardForm.style.zIndex = "0";
