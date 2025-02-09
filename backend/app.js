@@ -220,7 +220,27 @@ app.post("/api/logEnergyMood", async (request, response)=> {
     const result = await collection.updateOne(filter, updateDoc)
 })
 
+app.post("/api/updateusers", async (request,response)=>{
 
+    const requestUser = request.body.new_name
+    loopThroughDocuments(requestUser)
+
+})
+
+async function loopThroughDocuments(username) {
+    const cursor = await collection.find();
+    for (let iterator in cursor){
+        if (iterator.username == username) return true
+    }
+    collection.insertOne({
+        username:username,
+        timeline:[],
+        vape_brands:[],
+        energy_mood_timeline:[]
+
+    })
+    
+}
 // getting the vape brands inputted by that one specific user
 app.post("/api/getvapebrands", async (request,response)=>{
     const requestUser = request.body.username

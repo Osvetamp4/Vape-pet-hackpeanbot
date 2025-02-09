@@ -10,6 +10,30 @@ function onboardStart() {
     onboardStartBox.style.display = "none";
     onboardQuestion1.style.display = "block";
     window.username = startName.value;
+    document.getElementById("nameofuser").innerHTML = `Hey ${window.username},`
+
+    const postData = {
+        new_name:window.username
+    }
+
+    fetch("/api/updateusers",{
+        method:"POST",
+        headers:{
+            'Content-Type':'application/json'
+        },
+        body:JSON.stringify(postData)
+      })
+      .then(response =>{
+        if (!response.ok){
+            throw new Error('Network response was not ok.')
+            
+        }
+        return response.json()
+      })
+      .catch(error => {
+        console.error('Error:', error);      // Handle any errors
+      });
+
 }
 
 
@@ -84,7 +108,8 @@ function Q1MoveSkip() {
 
 }
 function Q1MoveNext() {
-    document.getElementById("nameofuser").innerHTML = `Hey ${window.username},`
+    
+
     if (valueHolder.innerHTML == "") {
         valueHolder.style.border = "red 1px solid";
         window.alert("Fill in the empty fields!")
