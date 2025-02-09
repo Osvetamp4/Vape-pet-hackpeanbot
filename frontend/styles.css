@@ -485,7 +485,7 @@ body {
 
 
 .introduction {
-    width: 65%;
+    width: 80%;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -507,14 +507,14 @@ body {
 .statsGrid {
     margin-top: 25px;
     display: grid;
-    width: 65%;
+    width: 80%;
     height: 45vh;
 }
 
 
 .entryOptions {
     display: flex;
-    width: 65%;
+    width: 80%;
     height: 15vh;
     background-color: #ff656a;
     margin-top: 25px;
@@ -641,9 +641,15 @@ body {
 
 #userDayCount {
     margin-top: 0;
-    padding-top: 50px;
+    /* padding-top: 50px; */
     margin-right: 25px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
 }
+
 
 #gardenOverview {
     margin-top: 0;
