@@ -40,16 +40,18 @@ async function run() {
       // Connect the client to the server
       await client.connect();
       // Send a ping to confirm a successful connection
-      const database = client.db("Vape-Pet-Database");
-      const collection = database.collection("User-Collection");
+      //const database = client.db("Vape-Pet-Database");
+      //const collection = database.collection("User-Collection");
       await client.db("admin").command({ ping: 1 });
       console.log("Pinged your deployment. You successfully connected to MongoDB!");
     } finally {
       // We don't want the connection to immediately close so we'll just pass for now.
-      await client.close();
+      return
     }
 }
 run().catch(console.dir);
+
+
 
 //this section here handles all sorts of crashes and server terminations so that Mongodb shuts off gracefully.
 
