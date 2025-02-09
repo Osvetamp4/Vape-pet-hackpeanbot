@@ -39,9 +39,9 @@
                     <div class="purchaseCountBoxItem pBox hoverOptionPurchase">4+</div>
                 </div>
             </div>
-            <div class="moneyCount selector">
+            <div class="moneyCount selector" style="margin-bottom:2vh;">
                 <div style="margin-bottom: 60px"> How much money do you spend on vapes a week?</div>
-                <input type="range" min="0" max="100" value="50" class="slider">
+                <input type="range" min="0" max="100" value="0" class="slider">
                 <div class="sliderRange">
                     <div>0</div>
                     <div>100</div>
@@ -121,6 +121,7 @@
                     </div>
                 </div>
             </div>
+            <button class="submitLog" onclick="submitL()">Submit</button>
         </div>
     </div>
     <div class="center" id="discardEntry">
@@ -144,14 +145,14 @@
                 <div class="vapeTypeItem hoverOptionVapeP">this</div>
                 <div class="vapeTypeItem hoverOptionVapeP">has stuff</div>
             </div>
-            <input type="text" placeholder="New Entry" style="margin-top:50px;">
+            <input id='newEntry' type="text" placeholder="New Entry" style="margin-top:225px; position: absolute;">
             <div class="vapePurchaseCost">
                 <div style="padding-bottom: 1vh; margin-top: 15vh;">How much did it cost?</div>
                 <input type="text" placeholder="Enter Amount"
                     style="height: 5vh;    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border: 0;padding-left:10px; outline: none;">
             </div>
             <div class="vapePuffNumber">
-                <div style="padding-top: 5vh;">How many puffs are in the vape?</div>
+                <div style="padding-top: 5vh; padding-bottom: 1vh;">How many puffs are in the vape?</div>
                 <input type="text" placeholder="Enter Amount"
                     style="height: 5vh;     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border: 0; padding-left:10px; outline: none;">
             </div>
@@ -174,21 +175,25 @@
         <div class="introduction">
             <div class="introHeader">
                 <h1 style="color:white">Hey *NAME*,</h1> <br>
+                <!-- Add a div on NAME to insert innerHTML in js using a fetch! -->
                 <div style="color:white">Its great to see you today</div>
             </div>
             <div class="pfp"></div>
         </div>
         <div class="statsGrid">
             <div class="gridItem" id="savings">Your usage decrease by *VALUE*<br>Keep up the good work!
+                <!-- same innerHTML fetch thing in the js-->
             </div>
-            <div class="gridItem" id="trajectory">You saved *VALUE* this week!</div>
+            <div class="gridItem" id="trajectory">You saved *VALUE* this week!</div><!-- same thing again !!-->
             <div class="gridItem" id="userDayCount">
                 <div style="padding-top:30px">Today is the </div><br>
                 <h1 style="color:#ff656a;">28th</h1><br>
                 <div style="padding-bottom: 30px ;">Day of your journey</div>
             </div>
-            <div class="gridItem" id="gardenOverview"></div>
-            <div class="gridItem" id="monthGlance"></div>
+            <div class="gridItem" id="gardenOverview">
+                <div style="padding-top:10px">Check Up on Gourby!</div><img class="plant"
+                    src="Images/Misc images/Plant.png">
+            </div>
         </div>
         <div class="entryOptions">
             <div>
