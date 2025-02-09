@@ -3,12 +3,13 @@ let onboardQuestion1 = document.querySelector(".onboardQuestions1");
 let onboardQuestion2 = document.querySelector(".onboardQuestions2");
 let dashboard = document.querySelector(".dashboard")
 let startName = document.querySelector(".onboardStartName");
-let username
+let username;
 function onboardStart() {
     onboardStartBox.style.display = "none";
     onboardQuestion1.style.display = "block";
     username = startName.value;
 }
+module.exports = { username };
 let items = document.getElementsByClassName("hoverOption");
 let vapeCountBox = document.querySelector(".test");
 vapeCountBox.addEventListener("mouseover", () => {
@@ -52,19 +53,6 @@ purchaseCountBox.addEventListener("mouseover", () => {
 });
 purchaseCountBox.addEventListener("mouseout", () => {
     let items = document.getElementsByClassName("hoverOptionPurchase");
-    for (let i = 0; i < items.length; i++) {
-        items[i].style.display = "none";
-    }
-});
-let vapeDiscard = document.querySelector(".vapeType");
-vapeDiscard.addEventListener("mouseover", () => {
-    let items = document.getElementsByClassName("hoverOptionVapeD");
-    for (let i = 0; i < items.length; i++) {
-        items[i].style.display = "flex";
-    }
-});
-vapeDiscard.addEventListener("mouseout", () => {
-    let items = document.getElementsByClassName("hoverOptionVapeD");
     for (let i = 0; i < items.length; i++) {
         items[i].style.display = "none";
     }
@@ -137,14 +125,34 @@ function logEntry() {
 function closeL() {
     logForm.style.display = "none";
     logForm.style.zIndex = "0";
+    vOptions[0].style.backgroundColor = "#f6f1ea";
+    vOptions[1].style.backgroundColor = "#f6f1ea";
+    for (let i = 0; i < emotions.length; i++) {
+        emotions[i].style.border = "0";
+    }
 }
 function onboardEnd() {
     onboardQuestion2.style.display = "none";
     dashboard.style.display = "flex";
 }
 
-let emotionOptions = document.getElementsByClassName("")
-
+let vOptions = document.getElementsByClassName("vOption");
+for (let i = 0; i < vOptions.length; i++) {
+    vOptions[i].addEventListener("click", () => {
+        vOptions[0].style.backgroundColor = "#f6f1ea";
+        vOptions[1].style.backgroundColor = "#f6f1ea";
+        vOptions[i].style.backgroundColor = "#fed700";
+    });
+}
+let emotions = document.getElementsByClassName("feelingOption");
+for (let i = 0; i < emotions.length; i++) {
+    emotions[i].addEventListener("click", () => {
+        for (let i = 0; i < emotions.length; i++) {
+            emotions[i].style.border = "0";
+        }
+        emotions[i].style.border = "black 1px solid";
+    })
+}
 class Vape {
     name;
     puffs;
@@ -155,6 +163,7 @@ let sliderDisplay = document.querySelector(".sliderValue");
 slider.oninput = function () {
     sliderDisplay.innerHTML = this.value;
 }
+
 //make json object to send objects to back-end!!
 
 class EnergyMood {

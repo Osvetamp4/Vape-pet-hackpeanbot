@@ -216,7 +216,7 @@ window.onload = function () {
         {
           label: "Puffs Per Week",
           data: totalPuffsPerWeek,
-          borderColor: "#a389f7",
+          borderColor: "#ff656a",
           backgroundColor: "rgba(138, 43, 226, 0.2)",
           fill: false
         }
@@ -233,7 +233,7 @@ window.onload = function () {
         {
           label: "Dollars Spent Per Week",
           data: totalCostPerWeek,
-          backgroundColor: "#c599ff"
+          backgroundColor: "#ff656a"
         }
       ]
     }
@@ -250,8 +250,8 @@ window.onload = function () {
           {
             label: "Average Energy Per Week",
             data: avgEnergyPerWeek,
-            borderColor: "#a389f7",
-            backgroundColor: "rgba(255, 107, 107, 0.2)",
+            borderColor: "#ff656a",
+            backgroundColor: "rgba(255, 101, 106, 0.2)",
             fill: false
           }
         ]
