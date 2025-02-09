@@ -135,13 +135,6 @@ function onboardEnd() {
     dashboard.style.display = "flex";
 }
 
-const Mood = {
-    Happy: 2,
-    Neutral: 1,
-    Sad: 0
-}
-
-
 class Vape {
     name;
     puffs;
@@ -187,4 +180,3 @@ class TrackingThrowaway {
     date;
     username;
 }
-
