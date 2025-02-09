@@ -117,7 +117,48 @@ app.post("/api/logPurchase", async (request,response)=>{
     
 })
 
+app.post("/api/logThrowaway", async (request,response) =>{
+    const requestDoc = request.body.tracking_throwaway //tell others to format the key like tracking_purchase
+    
+    const requestUser = requestDoc.username
 
+    const requestDate = requestDoc.date
+
+    const filter = {username:requestUser}
+
+    const updateDoc = {
+        $set: {
+            "timeline.0.end_date":requestDate
+        }
+    }
+    const result = await collection.updateOne(filter, updateDoc);
+})
+
+
+app.post("/api/logEnergyMood", async (request, response)=> {
+    const requestDoc = request.body.energy_mood
+
+    const requestEnergy = requestDoc.energy
+    const requestMood = requestDoc.mood
+    const requestDate = requestDoc.date
+    const requestUser = requestDoc.username
+
+    const filter = {username:requestUser}
+
+    const package = {
+        date:requestDate,
+        mood:requestMood,
+        energy:requestEnergy
+    }
+
+    const updateDoc = {
+        $push: {
+            energy_mood_timeline:package
+        }
+    }
+
+    const result = await collection.updateOne(filter, updateDoc)
+})
 
 
 // getting the vape brands inputted by that one specific user
@@ -137,6 +178,15 @@ app.get("/api/gettimeline",async (request,response)=> {
     const tl = query.timeline
     response.json({
         timeline:tl
+    })
+})
+
+app.get("/api/getEnergyMood", async (request, response)=> {
+    const requestUser = request.body.username
+    const query = await collection.findOne({username:requestUser})
+    const em = query.energy_mood_timeline
+    response.json({
+        energy_mood_timeline:em
     })
 })
 
