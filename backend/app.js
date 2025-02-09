@@ -3,6 +3,7 @@ const app = express();
 const path = require('path');
 const defaultPort = 3000
 require('dotenv').config(); //this activates the ability to parse the .env file
+const { Vape, EnergyMood, TrackingPurchase, TrackingThrowaway } = require('./class');
 
 
 //automatically parse any incoming requests into a JSON format
@@ -91,7 +92,10 @@ app.post("/api/logPurchase", async (request,response)=>{
 
     const requestDoc = request.body.tracking_purchase //tell the others to format the key like tracking_purchase
 
+    //const requestDoc = new TrackingPurchase("Joe","2024-01-01",new Vape("super smokers",2500,25.50))
+
     const requestUser = requestDoc.username
+    
 
     const requestDate = requestDoc.date
 
@@ -99,7 +103,7 @@ app.post("/api/logPurchase", async (request,response)=>{
 
     const VapeName = requestVape.name
 
-    const VapePuff = requestVape.puff
+    const VapePuff = requestVape.puffs
 
     const VapePrice = requestVape.price
 
@@ -118,13 +122,15 @@ app.post("/api/logPurchase", async (request,response)=>{
             timeline:package
         }
     }
+    console.log("benchmark")
     const result = await collection.updateOne(filter, updateDoc);
-
+    console.log("benchmark 2")
     
 })
 
 app.post("/api/logThrowaway", async (request,response) =>{
     const requestDoc = request.body.tracking_throwaway //tell others to format the key like tracking_purchase
+    //const requestDoc = new TrackingThrowaway("Joe","2024-01-23")
     
     const requestUser = requestDoc.username
 
@@ -132,9 +138,27 @@ app.post("/api/logThrowaway", async (request,response) =>{
 
     const filter = {username:requestUser}
 
+    const getlength = await collection.aggregate([
+        {
+          $match: { username: requestUser }  // Optional: Match the document by username or any condition
+        },
+        {
+          $project: {
+            timelineLength: { $size: "$timeline" }  // Get the length of the 'timeline' array
+          }
+        }
+      ]).toArray();
+      
+      // Result will contain the length of the timeline array
+    const arrayLength = getlength[0].timelineLength - 1 + "";
+
+    const finishedString = "timeline." + arrayLength + ".end_date"
+    console.log(finishedString)
+    
+
     const updateDoc = {
         $set: {
-            "timeline.0.end_date":requestDate
+            [finishedString]:requestDate
         }
     }
     const result = await collection.updateOne(filter, updateDoc);
@@ -143,6 +167,7 @@ app.post("/api/logThrowaway", async (request,response) =>{
 
 app.post("/api/logEnergyMood", async (request, response)=> {
     const requestDoc = request.body.energy_mood
+    //const requestDoc = new EnergyMood(1,2,"2025-1-23","Joe")
 
     const requestEnergy = requestDoc.energy
     const requestMood = requestDoc.mood
@@ -180,6 +205,7 @@ app.get("/api/getvapebrands", async (request,response)=>{
 // getting the timeline (all start and end dates) for one given user
 app.get("/api/gettimeline",async (request,response)=> {
     const requestUser = request.body.username
+    
     const query = await collection.findOne({username:requestUser})
     const tl = query.timeline
     response.json({
@@ -201,7 +227,9 @@ app.get("/api/getEnergyMood", async (request, response)=> {
 //serve the index.html file which is the entry point for our React app
 
 app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname,'frontend', 'dist', 'index.html'));
+    res.sendFile(path.join(__dirname,'../','frontend','index.html'),(err)=>{
+        if (err){res.status(404).send("File not found");}
+    });
 });
 
 //WARNING WE WILL NEED TO DEFINETELY CREATE API ROUTES TO SERVE THE HTML FILES
