@@ -86,7 +86,35 @@ process.on('uncaughtException', async (err) => {
     process.exit(1); // Exit with a failure code
 });
 
+app.post("/api/logVapeBrand", async (request,response)=>{
+    const requestDoc = request.body.vape // tell the others to format the key like vape
 
+    const requestUser = request.body.username //this is seperate from .vape
+
+    const requestVapeName = requestDoc.name
+
+    const requestVapePuffs = requestDoc.puffs
+
+    const requestVapeCost = requestDoc.cost
+
+    const filter = {username:requestUser}
+
+    const package = {
+        price:requestVapeCost,
+        total_puffs:requestVapePuffs,
+        brand_name:requestVapeName
+    }
+
+    const updateDoc = {//we are appending package to the timeline field in the user's document
+        $push: {
+            vape_brands:package
+        }
+    }
+    const result = await collection.updateOne(filter, updateDoc);
+})
+
+
+//this will be used to call to log any new vape purchases
 app.post("/api/logPurchase", async (request,response)=>{
     
 
@@ -128,6 +156,7 @@ app.post("/api/logPurchase", async (request,response)=>{
     
 })
 
+//this is to log any thrown away vapes
 app.post("/api/logThrowaway", async (request,response) =>{
     const requestDoc = request.body.tracking_throwaway //tell others to format the key like tracking_purchase
     //const requestDoc = new TrackingThrowaway("Joe","2024-01-23")
@@ -164,7 +193,7 @@ app.post("/api/logThrowaway", async (request,response) =>{
     const result = await collection.updateOne(filter, updateDoc);
 })
 
-
+//this is to log the user's daily energy and mood
 app.post("/api/logEnergyMood", async (request, response)=> {
     const requestDoc = request.body.energy_mood
     //const requestDoc = new EnergyMood(1,2,"2025-1-23","Joe")
