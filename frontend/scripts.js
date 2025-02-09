@@ -59,18 +59,22 @@ purchaseCountBox.addEventListener("mouseout", () => {
         items[i].style.display = "none";
     }
 });
+let newThing = document.querySelector("#newEntry");
 let vapeDiscardP = document.querySelector(".vapeTypeP");
 vapeDiscardP.addEventListener("mouseover", () => {
     let items = document.getElementsByClassName("hoverOptionVapeP");
     for (let i = 0; i < items.length; i++) {
         items[i].style.display = "flex";
     }
+
+    newThing.style.visibility = "hidden";
 });
 vapeDiscardP.addEventListener("mouseout", () => {
     let items = document.getElementsByClassName("hoverOptionVapeP");
     for (let i = 0; i < items.length; i++) {
         items[i].style.display = "none";
     }
+    newThing.style.visibility = "visible";
 });
 function Q1MoveSkip() {
     onboardQuestion1.style.display = "none";
@@ -104,6 +108,11 @@ let discardForm = document.querySelector("#discardEntry");
 function submitD() {
     discardForm.style.zIndex = "0";
     discardForm.style.display = "none";
+    //add object creation based on things
+}
+
+function submitL() {
+    closeL();
     //add object creation based on things
 }
 function closeD() {
@@ -190,6 +199,7 @@ class Vape {
 let slider = document.querySelector(".slider");
 let sliderDisplay = document.querySelector(".sliderValue");
 slider.oninput = function () {
+    sliderDisplay.style.visibility = "visible";
     sliderDisplay.innerHTML = this.value;
 }
 
@@ -228,3 +238,18 @@ class TrackingThrowaway {
     date;
     username;
 }
+
+const sliderthing = document.querySelector(".slider");
+
+function updateSliderFill() {
+    const value = sliderthing.value;
+    const min = sliderthing.min;
+    const max = sliderthing.max;
+    const percentage = ((value - min) / (max - min)) * 100;
+
+    sliderthing.style.background = `linear-gradient(to right, #ff656a ${percentage}%, #ddd ${percentage}%)`;
+}
+
+updateSliderFill();
+
+sliderthing.addEventListener("input", updateSliderFill)
