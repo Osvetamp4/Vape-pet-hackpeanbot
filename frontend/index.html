@@ -12,7 +12,7 @@
     <div class="center">
         <div class="onboardQuestions1">
             <div class="onboardQ1">
-                <h1 style="color:#ff656a">First, lets get to know you</h1>
+                <h1 style="color:#ff656a; font-size: 50px;">First, Let's Get to Know You</h1>
             </div>
             <div class="vapeCount selector">
                 <div>On how many days a week do you vape?</div>
@@ -48,7 +48,7 @@
                 <div class="onboardQ1Move" onclick="Q1MoveNext()">next</div>
             </div>
         </div>
-        <div class="onboardQuestions2 center">
+        <div class="center onboardQuestions2 ">
             <div class="onboardQ2">
                 <h1 class="onboardQ2" style="color:#ff656a">Lastly, a Gentle Self Reminder</h1>
             </div>
@@ -113,7 +113,6 @@
                 <div class="vapeTypeItem hoverOptionVapeD">has stuff</div>
             </div>
             <div class="discardOptions">
-                <button class="discardButton">Cancel</button>
                 <button class="discardButton">Confirm</button>
             </div>
         </div>
@@ -121,7 +120,7 @@
     <div class="center" id="purchaseEntry">
         <div class="purchaseEntry">
             <div class="closeP close" onclick="closeP()">X</div>
-            <h1 style="padding-top:5vh;">Record Purchase</h1>
+            <h1 style="color:#ff656a; margin-bottom: 5vh;">Record Purchase</h1>
             <div class="vapeTypeP">
                 <div class="vapeTypeItemP"></div>
                 <div class="vapeTypeItem hoverOptionVapeP">imagine</div>
@@ -129,16 +128,17 @@
                 <div class="vapeTypeItem hoverOptionVapeP">has stuff</div>
             </div>
             <div class="vapePurchaseCost">
-                <div style="padding-bottom: 5vh; margin-top: 20vh;">How much did it cost?</div>
-                <input type="text" placeholder="Enter Amount" style="height: 5vh">
+                <div style="padding-bottom: 1vh; margin-top: 15vh;">How much did it cost?</div>
+                <input type="text" placeholder="Enter Amount"
+                    style="height: 5vh;    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border: 0;padding-left:10px; outline: none;">
             </div>
             <div class="vapePuffNumber">
-                <div style="padding: 5vh;">How many puffs are in the vape?</div>
-                <input type="text" placeholder="Enter Amount" style="height: 5vh">
+                <div style="padding-top: 5vh;">How many puffs are in the vape?</div>
+                <input type="text" placeholder="Enter Amount"
+                    style="height: 5vh;     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border: 0; padding-left:10px; outline: none;">
             </div>
             <div class="purchaseOptions">
-                <button class="purchaseButton">Cancel</button>
-                <button class="purchaseButton">Confirm</button>
+                <button class="purchaseButton" onclick="submitP()">Submit</button>
             </div>
         </div>
     </div>
@@ -178,8 +178,8 @@
     </div>
     <div class="onboardingContainer center">
         <div class="onboardingText">
-            <h1 style="color:#ff656a">Congratulations!</h1> <br><br>
-            <div>You've taken the first steps towards improving your health and wellbeing</div>
+            <h1 style="color:#ff656a; font-size: 50px;">Congratulations!</h1> <br><br>
+            <div style="font-size: 24px;">You've taken the first steps towards improving your health and wellbeing</div>
             <br><br>
             <div class="onboardStart" onclick="onboardStart()">Plan your next steps</div>
         </div>

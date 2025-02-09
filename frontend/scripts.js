@@ -23,7 +23,7 @@ let valueHolder = document.querySelector(".valueHolder");
 for (let i = 0; i < items.length; i++) {
     items[i].addEventListener("click", () => {
         valueHolder.innerHTML = items[i].innerHTML;
-        valueHolder.style.border = "black 1px solid";
+        valueHolder.style.border = "0";
         for (let i = 0; i < items.length; i++) {
             items[i].style.display = "none";
         }
@@ -93,7 +93,7 @@ function Q1MoveNext() {
         window.alert("Fill in the empty fields!")
     }
     else {
-        onboardQuestion2.style.display = "block";
+        onboardQuestion2.style.display = "flex";
         onboardQuestion1.style.display = "none";
     }
 }
@@ -102,10 +102,15 @@ function closeP() {
     purchaseForm.style.zIndex = "0";
     purchaseForm.style.display = "none";
 }
+function submitP() {
+    purchaseForm.style.zIndex = "0";
+    purchaseForm.style.display = "none";
+    //add object creation based on things
+}
 let discardForm = document.querySelector("#discardEntry");
 function closeD() {
-    discardForm.style.zIndex = "0";
     discardForm.style.display = "none";
+    discardForm.style.zIndex = "0";
 }
 function discardEntry() {
     discardForm.style.display = "flex";
