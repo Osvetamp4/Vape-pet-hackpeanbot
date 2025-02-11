@@ -340,7 +340,7 @@ class EnergyMood {
 
 class TrackingPurchase {
     constructor(username, date, vape) {
-        this.date = date
+        this.date = date;
         this.vape = vape;
         this.username = username;
     }
