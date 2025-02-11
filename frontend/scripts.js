@@ -6,6 +6,7 @@ let startName = document.querySelector(".onboardStartName");
 window.currentNumber = 1
 window.currentMood = 1
 window.username = undefined
+window.yesOrno = "no"
 function onboardStart() {
     onboardStartBox.style.display = "none";
     onboardQuestion1.style.display = "block";
@@ -202,7 +203,7 @@ function submitL() {
     let month = currentDate.getMonth() + 1; // Get the month (Note: months are 0-indexed)
     let day = currentDate.getDate(); // Get the day of the month
     const dateString = year + "-" + day + "-" + month
-    const tempEnergyMood = new EnergyMood(window.currentNumber,window.currentMood,dateString,window.username)
+    const tempEnergyMood = new EnergyMood(window.yesOrno,window.currentNumber,window.currentMood,dateString,window.username)
 
     const postData = {
         energy_mood:tempEnergyMood
@@ -322,13 +323,15 @@ slider.oninput = function () {
 //make json object to send objects to back-end!!
 
 class EnergyMood {
-    constructor(energy, mood, date, username) {
+    constructor(yesOrno,energy, mood, date, username) {
+        this.yesOrno = yesOrno
         this.date = date;
         this.energy = energy;
         this.mood = mood;
         this.username = username;
 
     }
+    yesOrno
     energy;
     mood;
     date;

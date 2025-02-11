@@ -202,13 +202,15 @@ app.post("/api/logEnergyMood", async (request, response)=> {
     const requestMood = requestDoc.mood
     const requestDate = requestDoc.date
     const requestUser = requestDoc.username
+    const requestYN = requestDoc.yesOrno
 
     const filter = {username:requestUser}
 
     const package = {
         date:requestDate,
         mood:requestMood,
-        energy:requestEnergy
+        energy:requestEnergy,
+        didVape:requestYN
     }
 
     const updateDoc = {
