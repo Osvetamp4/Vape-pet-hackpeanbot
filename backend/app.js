@@ -93,6 +93,7 @@ app.post("/api/logVapeBrand", async (request,response)=>{
 
     const requestVapeName = requestDoc.name
 
+    
     const requestVapePuffs = requestDoc.puffs
 
     const requestVapeCost = requestDoc.cost
