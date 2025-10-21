@@ -14,25 +14,25 @@ Every user is greeted with the two initial pages that asks for the user's name a
 The third page is the home page that the user consistently refers back to whenever they add a new entry.
 
 <figure>
-  <img src="readmeimages/Init_Name_Entr.png" alt="Initialization screen" style="max-width:600px; width:60%; height:auto;" />
+  <img src="readmeimages/Init_Name_Entr.png" alt="Initialization screen" style="max-width:600px; width:75%; height:auto;" />
   <figcaption><em>Initialization — user enters name to create their profile.</em></figcaption>
 </figure>
 
 
 <figure>
-  <img src="readmeimages/initializationinfo.png" alt="Initialization info screen" style="max-width:600px; width:60%; height:auto;" />
+  <img src="readmeimages/initializationinfo.png" alt="Initialization info screen" style="max-width:600px; width:75%; height:auto;" />
   <figcaption><em>Information Setup — user enters initial vape count.</em></figcaption>
 </figure>
 
 
 <figure>
-  <img src="readmeimages\reminder.png" alt="reminder screen" style="max-width:600px; width:60%; height:auto;" />
+  <img src="readmeimages\reminder.png" alt="reminder screen" style="max-width:600px; width:75%; height:auto;" />
   <figcaption><em>Reminder message — user enters a message as a small reminder.</em></figcaption>
 </figure>
 
 
 <figure>
-  <img src="readmeimages\homepage.png" alt="reminder screen" style="max-width:600px; width:60%; height:auto;" />
+  <img src="readmeimages\homepage.png" alt="reminder screen" style="max-width:600px; width:75%; height:auto;" />
   <figcaption><em>Landing Page — User Home page to count their statistics.</em></figcaption>
 </figure>
 
@@ -41,19 +41,19 @@ The home page displays the user's current statistics as well as hold three possi
 ### Log Entry
 
 <figure>
-  <img src="readmeimages\logsubmission.png" alt="reminder screen" style="max-width:600px; width:60%; height:auto;" />
+  <img src="readmeimages\logsubmission.png" alt="reminder screen" style="max-width:600px; width:75%; height:auto;" />
   <figcaption><em>Log Entry — User submits information regarding an entry.</em></figcaption>
 </figure>
 
 Log entry allows the user to record whenever they use a vape that they purchased. It allows for the user to input whatever they feel after vaping in a quantifiable way.
 
 <figure>
-  <img src="readmeimages\Purchase.png" alt="reminder screen" style="max-width:600px; width:60%; height:auto;" />
+  <img src="readmeimages\Purchase.png" alt="reminder screen" style="max-width:600px; width:75%; height:auto;" />
   <figcaption><em>Purchase Record — User records vape purchase.</em></figcaption>
 </figure>
 
 <figure>
-  <img src="readmeimages\Discard Entry.png" alt="reminder screen" style="max-width:600px; width:60%; height:auto;" />
+  <img src="readmeimages\Discard Entry.png" alt="reminder screen" style="max-width:600px; width:75%; height:auto;" />
   <figcaption><em>Discard Entry — User records vape discard.</em></figcaption>
 </figure>
 
@@ -67,19 +67,19 @@ When the user submits a username that does not already exist in the database, a 
 
 
 <figure>
-  <img src="readmeimages\usercreation.png" alt="reminder screen" style="max-width:600px; width:60%; height:auto;" />
+  <img src="readmeimages\usercreation.png" alt="reminder screen" style="max-width:600px; width:75%; height:auto;" />
   <figcaption><em>Initial User Object Creation — Upon username submission, a corresponding object is created for the user.</em></figcaption>
 </figure>
 
 <figure>
-  <img src="readmeimages\logmongodb.png" alt="reminder screen" style="max-width:600px; width:60%; height:auto;" />
+  <img src="readmeimages\logmongodb.png" alt="reminder screen" style="max-width:600px; width:75%; height:auto;" />
   <figcaption><em>Log Entry MongoDB — Creation of the energy-mood-object once a log entry has been submitted.</em></figcaption>
 </figure>
 
 All entries such as Log Entry, Discard Entry, and Record Purchase are stored as quantifiable sub-documents within each user document for ease of access and encapsulation.
 
 <figure>
-  <img src="readmeimages\timelinemongodb.png" alt="reminder screen" style="max-width:600px; width:60%; height:auto;" />
+  <img src="readmeimages\timelinemongodb.png" alt="reminder screen" style="max-width:600px; width:75%; height:auto;" />
   <figcaption><em>Timeline Entry MongoDB — The creation of the twostep mark in the user's timeline.</em></figcaption>
 </figure>
 
