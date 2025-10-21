@@ -9,10 +9,10 @@ The core idea of Vape-Pet is a Harm-Reduction Software that doesn't seek to comp
 Vape-Pet provides the user with the ability to document and follow their usage, and henceforth allow for self-accountability.
 
 
-<div align="center">
+<figure>
   <img src="readmeimages/Init_Name_Entr.png" alt="Initialization screen" style="max-width:600px; width:80%; height:auto;" />
   <figcaption><em>Initialization — user enters name to create their profile.</em></figcaption>
-</div>
+</figure>
 
 <figure>
   <img src="readmeimages/initializationinfo.png" alt="Initialization info screen" style="max-width:600px; width:80%; height:auto;" />
@@ -25,7 +25,7 @@ Vape-Pet provides the user with the ability to document and follow their usage, 
 </figure>
 
 <figure>
-  <img src="readmeimages\reminder.png" alt="reminder screen" style="max-width:600px; width:80%; height:auto;" />
+  <img src="readmeimages\homepage.png" alt="reminder screen" style="max-width:600px; width:80%; height:auto;" />
   <figcaption><em>Landing Page — User Home page to count their statistics.</em></figcaption>
 </figure>
 
