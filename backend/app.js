@@ -16,7 +16,7 @@ const { MongoClient, ServerApiVersion } = require("mongodb");
 const DB_USERNAME = process.env.db_username;
 const DB_PASSWORD = process.env.db_password;
 
-const uri = "mongodb+srv://" + DB_USERNAME + ":" + DB_PASSWORD + "@vape-cluster.okno4.mongodb.net/?retryWrites=true&w=majority&appName=Vape-Cluster"
+const uri = "mongodb+srv://" + DB_USERNAME + ":" + DB_PASSWORD + "@vape-cluster.d3abadl.mongodb.net/?retryWrites=true&w=majority&appName=Vape-Cluster"
 
 console.log(uri)
 
@@ -270,7 +270,7 @@ app.post("/api/getEnergyMood", async (request, response)=> {
     const requestUser = request.body.username
     console.log("benchmark 2")
     const query = await collection.findOne({username:requestUser})
-    const em = query.energy_mood_timeline
+    const em = query.energy_mood_timeline || null
     console.log(`loggin em: ${em}`)
     response.json({
         energy_mood_timeline:em
