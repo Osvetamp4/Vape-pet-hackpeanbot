@@ -47,6 +47,20 @@ The home page displays the user's current statistics as well as hold three possi
 
 Log entry allows the user to record whenever they use a vape that they purchased. It allows for the user to input whatever they feel after vaping in a quantifiable way.
 
+<figure>
+  <img src="readmeimages\Purchase.png" alt="reminder screen" style="max-width:600px; width:60%; height:auto;" />
+  <figcaption><em>Purchase Record — User records vape purchase.</em></figcaption>
+</figure>
+
+<figure>
+  <img src="readmeimages\Discard Entry.png" alt="reminder screen" style="max-width:600px; width:60%; height:auto;" />
+  <figcaption><em>Discard Entry — User records vape discard.</em></figcaption>
+</figure>
+
+Record Purchase and Discard Entry are twofold operations.
+
+Record Purchase sets up a mark on the timeline of the user. Discard Entry finishes the mark on said timeline. The purpose of those two buttons is to allow the user to create a comphrehensive timeline of their purchases and discards of their vapes.
+
 ## Backend and API routing
 
 When the user submits a username that does not already exist in the database, a corresponding entry with no values is created in the backend database.
@@ -63,3 +77,10 @@ When the user submits a username that does not already exist in the database, a 
 </figure>
 
 All entries such as Log Entry, Discard Entry, and Record Purchase are stored as quantifiable sub-documents within each user document for ease of access and encapsulation.
+
+<figure>
+  <img src="readmeimages\timelinemongodb.png" alt="reminder screen" style="max-width:600px; width:60%; height:auto;" />
+  <figcaption><em>Timeline Entry MongoDB — The creation of the twostep mark in the user's timeline.</em></figcaption>
+</figure>
+
+Discard Entry only works after Record Purchase has been used. Record Purchase sets up the object representing the current mark in the timeline. Discard Entry finishes and writes the ending timestamp for the current mark in the timeline.
