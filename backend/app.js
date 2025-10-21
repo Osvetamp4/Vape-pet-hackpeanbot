@@ -231,50 +231,62 @@ app.post("/api/updateusers", async (request,response)=>{
 })
 
 async function loopThroughDocuments(username) {
-    const cursor = await collection.find();
-    for (let iterator in cursor){
-        if (iterator.username == username) return true
+    // Check for existing user document and create one if missing
+    try {
+        const existing = await collection.findOne({ username });
+        if (existing) return true;
+        await collection.insertOne({
+            username: username,
+            timeline: [],
+            vape_brands: [],
+            energy_mood_timeline: []
+        });
+        return true;
+    } catch (err) {
+        console.error('Error in loopThroughDocuments:', err);
+        throw err;
     }
-    collection.insertOne({
-        username:username,
-        timeline:[],
-        vape_brands:[],
-        energy_mood_timeline:[]
-
-    })
-    
 }
 // getting the vape brands inputted by that one specific user
 app.post("/api/getvapebrands", async (request,response)=>{
     const requestUser = request.body.username
-    const query = await collection.findOne({username:requestUser})
-    const bd = query.vape_brands
-    response.json({
-        vape_brands:bd
-    })
+    try {
+        const query = await collection.findOne({ username: requestUser });
+        const bd = query ? query.vape_brands || [] : [];
+        response.json({ vape_brands: bd });
+    } catch (err) {
+        console.error('Error in /api/getvapebrands:', err);
+        response.status(500).json({ error: 'Internal server error' });
+    }
 })
 
 // getting the timeline (all start and end dates) for one given user
 app.post("/api/gettimeline",async (request,response)=> {
     const requestUser = request.body.username
     
-    const query = await collection.findOne({username:requestUser})
-    const tl = query.timeline
-    response.json({
-        timeline:tl
-    })
+    try {
+        const query = await collection.findOne({ username: requestUser });
+        const tl = query ? query.timeline || [] : [];
+        response.json({ timeline: tl });
+    } catch (err) {
+        console.error('Error in /api/gettimeline:', err);
+        response.status(500).json({ error: 'Internal server error' });
+    }
 })
 
 app.post("/api/getEnergyMood", async (request, response)=> {
     console.log("benchmark 1")
     const requestUser = request.body.username
     console.log("benchmark 2")
-    const query = await collection.findOne({username:requestUser})
-    const em = query.energy_mood_timeline || null
-    console.log(`loggin em: ${em}`)
-    response.json({
-        energy_mood_timeline:em
-    })
+    try {
+        const query = await collection.findOne({ username: requestUser });
+        const em = query ? query.energy_mood_timeline || [] : [];
+        console.log(`loggin em: ${em}`)
+        response.json({ energy_mood_timeline: em });
+    } catch (err) {
+        console.error('Error in /api/getEnergyMood:', err);
+        response.status(500).json({ error: 'Internal server error' });
+    }
 })
 
 
