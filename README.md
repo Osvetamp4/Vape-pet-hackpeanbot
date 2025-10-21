@@ -38,7 +38,12 @@ The third page is the home page that the user consistently refers back to whenev
 
 The home page displays the user's current statistics as well as hold three possible actions for the user to take: Log Entry, Discard Entry, and Record Purchase.
 
-### Log Entry
+<figure>
+  <img src="readmeimages\insights.png" alt="reminder screen" style="max-width:600px; width:75%; height:auto;" />
+  <figcaption><em>Insight Page — Insight Page is initialized when user is created.</em></figcaption>
+</figure>
+
+### Log Entry, Discard Entry, and Record Purchase
 
 <figure>
   <img src="readmeimages\logsubmission.png" alt="reminder screen" style="max-width:600px; width:75%; height:auto;" />
