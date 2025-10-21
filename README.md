@@ -14,22 +14,22 @@ Every user is greeted with the two initial pages that asks for the user's name a
 The third page is the home page that the user consistently refers back to whenever they add a new entry.
 
 <figure>
-  <img src="readmeimages/Init_Name_Entr.png" alt="Initialization screen" style="max-width:600px; width:80%; height:auto;" />
+  <img src="readmeimages/Init_Name_Entr.png" alt="Initialization screen" style="max-width:600px; width:60%; height:auto;" />
   <figcaption><em>Initialization — user enters name to create their profile.</em></figcaption>
 </figure>
 
 <figure>
-  <img src="readmeimages/initializationinfo.png" alt="Initialization info screen" style="max-width:600px; width:80%; height:auto;" />
+  <img src="readmeimages/initializationinfo.png" alt="Initialization info screen" style="max-width:600px; width:60%; height:auto;" />
   <figcaption><em>Information Setup — user enters initial vape count.</em></figcaption>
 </figure>
 
 <figure>
-  <img src="readmeimages\reminder.png" alt="reminder screen" style="max-width:600px; width:80%; height:auto;" />
+  <img src="readmeimages\reminder.png" alt="reminder screen" style="max-width:600px; width:60%; height:auto;" />
   <figcaption><em>Reminder message — user enters a message as a small reminder.</em></figcaption>
 </figure>
 
 <figure>
-  <img src="readmeimages\homepage.png" alt="reminder screen" style="max-width:600px; width:80%; height:auto;" />
+  <img src="readmeimages\homepage.png" alt="reminder screen" style="max-width:600px; width:60%; height:auto;" />
   <figcaption><em>Landing Page — User Home page to count their statistics.</em></figcaption>
 </figure>
 
@@ -40,6 +40,6 @@ When the user submits a username that does not already exist in the database, a 
 
 
 <figure>
-  <img src="readmeimages\usercreation.png" alt="reminder screen" style="max-width:600px; width:80%; height:auto;" />
+  <img src="readmeimages\usercreation.png" alt="reminder screen" style="max-width:600px; width:60%; height:auto;" />
   <figcaption><em>Initial User Object Creation — Upon username submission, a corresponding object is created for the user.</em></figcaption>
 </figure>
