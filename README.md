@@ -13,3 +13,13 @@ Vape-Pet provides the user with the ability to document and follow their usage, 
   <img src="readmeimages/Init_Name_Entr.png" alt="Initialization screen" style="max-width:600px; width:100%; height:auto;" />
   <figcaption><em>Initialization — user enters name to create their profile.</em></figcaption>
 </figure>
+
+<figure>
+  <img src="readmeimages/initializationinfo.png" alt="Initialization info screen" style="max-width:600px; width:100%; height:auto;" />
+  <figcaption><em>Information Setup — user enters initial vape count.</em></figcaption>
+</figure>
+
+<figure>
+  <img src="readmeimages\reminder.png" alt="reminder screen" style="max-width:600px; width:100%; height:auto;" />
+  <figcaption><em>Reminder message — user enters a message as a small reminder.</em></figcaption>
+</figure>
